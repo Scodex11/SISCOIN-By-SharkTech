@@ -227,7 +227,7 @@
 		<div class="pd-ltr-20 xs-pd-20-10">
 			<div class="min-height-200px">
 				
-				<!-- Default Basic Forms Start -->
+			<!-- Comienzo de CONTENEDOR FORMULARIO -->
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
@@ -236,62 +236,58 @@
 						</div>
 					</div>
 
-
-
-
-
-
-
 					
 					<!-- FORMULARIO DE EQUIPAMIENTO -->
 					<form action="#" method="post">
-
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" type="text" placeholder="Ej: 123" name="inventario">
+					
+						<!-- Text field: name="inventario" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: 123" name="inventario">
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">N°Serie</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" type="text" placeholder="Ej: qwer1234" name="serie">
+						<!-- Text field: name="serie" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">N°Serie</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: qwer1234" name="serie">
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" type="text" placeholder="Ej: Monitor LED" name="nombre">
+						<!-- Text field: name="nombre" -->	
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: Monitor LED" name="nombre">
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Descripcion: </label>
-							<div class="col-sm-6 col-md-10">
-								<input class="form-control" type="text" placeholder="Ej: Monitor HP 35 pulgadas con lucesistas gamer porque es para gamers" name="descripcion">
+						<!-- Text field: name="descripcion" -->	
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Descripcion: </label>
+								<div class="col-sm-6 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: Monitor HP 35 pulgadas con lucesistas gamer porque es para gamers" name="descripcion">
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Marca</label>
-							<div class="col-sm-12 col-md-10">
-								<input class="form-control" type="text" placeholder="Ej: Logitech" name="marca">
+						<!-- Text field: name="marca" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Marca</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: Logitech" name="marca">
+								</div>
+								
+							</div>	
+						<!-- Botones ABM -->
+							<div class="btn list">
+								<input type="submit" name="btn_guardar" value="Guardar" class="btn btn-outline-success">
+								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
+								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
 							</div>
-							
-						</div>
-						
-
-						
-
-						<div class="btn list">
-							<input type="submit" name="btn_guardar" value="Guardar" class="btn btn-outline-success">
-							<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
-							<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
-						</div>
 					</form>
 					
 				</div>
-				<!-- Default Basic Forms End -->
+	<!-- Fin CONTENEDOR FORMULARIO -->
 
-	<!-- Bordered table  start -->
+	<!-- Comienzo de Tabla EQUIPAMIENTO -->
 	<div class="pd-20 card-box mb-30">
 		<div class="clearfix mb-20">
 			<div class="pull-left">
@@ -326,10 +322,11 @@
 		</div>
 		
 	</div>
-	<!-- Bordered table End -->
+	<!-- Fin de Tabla EQUIPAMIENTO -->
 				
 
 			</div>
+<!-- Créditos al creador de la plantilla -->
 			<div class="footer-wrap pd-20 mb-20 card-box">
 				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
 			</div>
