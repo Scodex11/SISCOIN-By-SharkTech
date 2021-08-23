@@ -49,7 +49,18 @@
             }
         }
 
+        // Método para registrar un trabajador
+        public function registrar($user, $pass){
+            $sql = "INSERT INTO usuario (Usuario, Contraseña) VALUES '$user', '$pass'";
 
+             // Comprobamos si ocurre un error al ejecutar la consulta
+
+             if(!$consulta = $this->db->query($sql)){
+                echo "<script>alert('¡Error al crear pana!');</script>";
+            }else{
+                echo "<script>alert('Pana feliz, comprobá en la bd anashe');</script>";
+            }
+        }
 
     }
 
