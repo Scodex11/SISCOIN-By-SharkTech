@@ -109,24 +109,24 @@
 					</div>
 
 					
-					<!-- FORMULARIO DE EQUIPAMIENTO -->
+					<!-- FORMULARIO DE ALTA USUARIOS -->
 					<form action="#" method="post">
 					
-						<!-- Text field: name="inventario" -->
+						<!-- text field name = "user" -->
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">Usuario</label>
 								<div class="col-sm-12 col-md-10">
 									<input class="form-control" type="text" placeholder="Ej: panaRabbit" name="user">
 								</div>
 							</div>
-						<!-- Text field: name="serie" -->
+						<!-- text field name = "pass" -->
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">Contraseña</label>
 								<div class="col-sm-12 col-md-10">
 									<input class="form-control" type="text" placeholder="***********" name="pass">
 								</div>
 							</div>
-						<!-- Botones ABM -->
+						
 							<div class="btn list">
 								<input type="submit" name="registrar" value="Registrar" class="btn btn-outline-success">
 								<!-- <input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning"> -->
