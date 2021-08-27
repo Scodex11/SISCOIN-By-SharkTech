@@ -123,13 +123,16 @@
 						<span class="user-name">Facundo Rodriguez</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
-						<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>
-						<a class="dropdown-item" href="#"><i class="dw dw-help"></i>Ayuda</a>
-						<a class="dropdown-item" href="#"><i class="dw dw-logout"></i>Cerrar Sesión</a>
+						<form action="../index.php" method="POST">
+							<!-- <a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
+							<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>
+							<a class="dropdown-item" href="#"><i class="dw dw-help"></i>Ayuda</a> -->
+							<input type="submit" class="dropdown-item" name="cerrar_sesion" value="Cerrar Sesión">
+						</form>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 
