@@ -7,6 +7,7 @@
         private $user;
         private $pass;
         private $db;
+        private $ID_Cargo;
         private $contraseña;
         private $usuario;
 
@@ -17,11 +18,12 @@
 
         public function __construct(){
             $this->db = Conectar::conexion();
-            $this->filas = array();
+            $this->cargos = array();
             $this->user ='';
             $this->pass ='';
             $this->contraseña ='';
             $this->usuario ='';
+            $this->ID_Cargo ='';
 
         }
 
@@ -36,30 +38,58 @@
             }else{
                 
                 // Devolvemos cant de registros en forma de NUMERO
-                $filas = mysqli_num_rows($consulta);
+                $filas = $consulta->fetch_row();
 
                 // Comprobamos que haya registros
 
-                if ($filas == 0) {
+                if ($filas == false) {
                     echo "<script>alert('Error: usuario y/o clave incorrectos!!');</script>";
                 }else{
-                    header("location: views/view_index.php");
+                            // header("location: views/view_index.php");
+                   $cargo = $filas[2];
+                   $_SESSION['ID_Cargo'] = $cargo;
+                   switch ($_SESSION['ID_Cargo']) {
+                       case 1:
+                           echo 'INFORMATICA PA';
+                           break;
+                       
+                       case 2:
+                        echo 'oficina PA';
+                           break;
+                       
+                       default:
+                   }
+                    
                 }
             }
+                
         }
-
-        public function registrarUser($usuario, $contraseña){
-            $sql = "INSERT INTO `usuario` (`Usuario`, `Contraseña`) VALUES ('$usuario', '$contraseña')";
+        
+// Método para registrar un trabajador con un cargo
+        public function registrarUser($usuario, $contraseña, $ID_Cargo){
+            $sql = "INSERT INTO `usuario` (`Usuario`, `Contraseña`, `ID_Cargo`) VALUES ('$usuario', '$contraseña', '$ID_Cargo')";
 
             $consulta = $this->db->query($sql);
 
             if (!$consulta) {
                 echo "<script>alert('¡HA OCURRIDO UN ERROR BOBLY!');</script>";
             }else{
-                echo "<script>alert('¡SOS EL PROPIO!');</script>";
+                echo "<script>alert('¡Usuario registrado con éxito!');</script>";
             }
         }
 
+
+        // Tomar tipo de cargo
+        public function getCargo(){
+            $sql = "SELECT * FROM cargos";
+
+            $consulta = $this->db->query($sql);
+        
+            while($filas=$consulta->fetch_assoc()){
+				$this->cargos[]=$filas;
+			}
+			return $this->cargos;
+        }
     }
 
 ?>

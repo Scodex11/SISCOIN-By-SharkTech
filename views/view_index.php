@@ -33,19 +33,11 @@
 	</script>
 </head>
 <body>
-<div class="pre-loader">
-		<div class="pre-loader-box">
-			<div class="loader-logo"><img src="vendors/images/siscoin-logo.svg" alt=""></div>
-			<div class='loader-progress' id="progress_div">
-				<div class='bar' id='bar1'></div>
-			</div>
-			<div class='percent' id='percent1'>0%</div>
-			<div class="loading-text">
-				Cargando...
-			</div>
-		</div>
-	</div>
+	<!-- Pantalla carga -->
+	<?php 
+	require_once('pantalla_carga.php') ?>
 
+	<!-- HEADER -->
 	<div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -119,6 +111,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- DESPLEGABLE DE USUARIO -->
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -128,10 +121,12 @@
 						<span class="user-name">Facundo Rodriguez</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
-						<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>
-						<a class="dropdown-item" href="#"><i class="dw dw-help"></i>Ayuda</a>
-						<a class="dropdown-item" href="#"><i class="dw dw-logout"></i>Cerrar Sesión</a>
+						<form action="../index.php" method="POST">
+							<!-- <a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
+							<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>
+							<a class="dropdown-item" href="#"><i class="dw dw-help"></i>Ayuda</a> -->
+							<input type="submit" class="dropdown-item" name="cerrar_sesion" value="Cerrar Sesión">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -139,7 +134,7 @@
 	</div>
 
 
-<!-- Menú configuracion de color  -->
+	<!-- Menú configuracion de color  -->
 	<div class="right-sidebar">
 		<div class="sidebar-title">
 			<h3 class="weight-600 font-16 text-blue">

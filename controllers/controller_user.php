@@ -4,15 +4,22 @@
         // Instancio mi objeto de la clase 'model_user'
         $objetoUsere = new model_user();
 
+        $comboCargo = $objetoUsere->getCargo();
         // REGISTRAR
             if (isset($_POST['registrar'])) {
                 $usuario = $_POST['user'];
                 // Contraseña CIFRADA
-                $contraseña = $_POST['pass'];
+                $contraseña = MD5($_POST['pass']);
 
-                $result = $objetoUsere->registrarUser($usuario, $contraseña);
+                $ID_Cargo = $_POST['cbx_cargo'];
+
+                $result = $objetoUsere->registrarUser($usuario, $contraseña, $ID_Cargo);
                 
             }
+
+            
+
+
 
         
 ?>

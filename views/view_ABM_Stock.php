@@ -37,8 +37,8 @@
 </head>
 <body>
 	<!-- Pantalla carga -->
-	<?php 
-	require_once('pantalla_carga.php') ?>
+	<!-- <//?php 
+	// require_once('pantalla_carga.php') ?> -->
 
 	<!-- HEADER  -->
 	<div class="header">

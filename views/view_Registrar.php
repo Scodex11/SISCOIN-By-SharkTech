@@ -123,10 +123,23 @@
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">Contraseña</label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="***********" name="pass">
+									<input class="form-control" type="password" placeholder="***********" name="pass">
 								</div>
 							</div>
 						
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Cargo</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name="cbx_cargo">
+									<?php 
+										foreach($comboCargo as $datos) { ?>
+											<option value="<?php echo $datos['ID_Cargo']; ?>"><?php echo $datos['cargo']; ?></option>
+									<?php } ?> 
+								</select>
+							</div>
+							
+						</div>
+
 							<div class="btn list">
 								<input type="submit" name="registrar" value="Registrar" class="btn btn-outline-success">
 								<!-- <input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning"> -->
