@@ -118,7 +118,7 @@
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Facundo Rodriguez</span>
+						<span class="user-name">Nombre Trabajador</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -177,7 +177,7 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							¡Bienvenido! <div class="weight-600 font-30 text-blue">Facundo Rodriguez</div>
+							¡Bienvenido! <div class="weight-600 font-30 text-blue">Nombre Trabajador</div>
 						</h4>
 						<p class="font-18 max-width-600">¡Espero que hoy tengas una gran jornada! 🦈</p>
 					</div>

@@ -45,20 +45,12 @@
                 if ($filas == false) {
                     echo "<script>alert('Error: usuario y/o clave incorrectos!!');</script>";
                 }else{
-                           
+                    // Guardo el ID del cargo del usuario que inició sesión
                    $cargo = $filas[2];
+
+                    //Hago corresponder a '$cargo' el cargo del usuario
                    $_SESSION['ID_Cargo'] = $cargo;
-                   switch ($_SESSION['ID_Cargo']) {
-                       case 1:
-                           echo 'INFORMATICA';
-                       break;
-                       
-                       case 2:
-                           echo 'oficina';
-                        break;
-                       
-                       default:
-                   }
+                   
                     
                 }
             }

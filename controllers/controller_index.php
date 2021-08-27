@@ -3,27 +3,29 @@
 
 // Instancio mi objeto de la clase 'model_user'
     $objetoUser = new model_user();
-
-
-session_start();
-
-    
     
 // Iniciar Sesión
 
+    
+
     if (isset($_POST['ingresar'])) {
+        session_start();
+
         $user = $_POST['user'];
         // Contraseña CIFRADA
-        
         $pass = MD5($_POST['pass']);
+
+        // Comprueba que no estén vacíos
         if (isset($user) && isset($pass)) {
             // Pasamos parámetros a INICIAR SESIÓN para que compruebe si existe
             $ingresar = $objetoUser->iniciarSesion($user,$pass);
 
+            // Guardamos el ID con el que se inició sesión
+            $cargo = $_SESSION['ID_Cargo'];
             // Validamos cargo y enviamos a su respectiva ventana
-            if (isset($_SESSION['ID_Cargo'])) {
+            if (isset($cargo)) {
                 // 
-                $cargo = $_SESSION['ID_Cargo'];
+             
 
                 switch ($cargo) {
                     case 1:
