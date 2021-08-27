@@ -14,16 +14,20 @@ session_start();
     if (isset($_POST['ingresar'])) {
         $user = $_POST['user'];
         // Contraseña CIFRADA
+        
         $pass = MD5($_POST['pass']);
         if (isset($user) && isset($pass)) {
             // Pasamos parámetros a INICIAR SESIÓN para que compruebe si existe
             $ingresar = $objetoUser->iniciarSesion($user,$pass);
+
             // Validamos cargo y enviamos a su respectiva ventana
             if (isset($_SESSION['ID_Cargo'])) {
+                // 
                 $cargo = $_SESSION['ID_Cargo'];
+
                 switch ($cargo) {
                     case 1:
-                        header('Location: views/view_index.php');
+                        header('Location: views/view_index_informatica.php');
                     break;
                     
                     case 2:
@@ -45,6 +49,7 @@ session_start();
 
     }
 
+    
     
 
     require_once('views/view_login.php');

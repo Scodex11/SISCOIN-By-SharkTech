@@ -45,17 +45,17 @@
                 if ($filas == false) {
                     echo "<script>alert('Error: usuario y/o clave incorrectos!!');</script>";
                 }else{
-                            // header("location: views/view_index.php");
+                           
                    $cargo = $filas[2];
                    $_SESSION['ID_Cargo'] = $cargo;
                    switch ($_SESSION['ID_Cargo']) {
                        case 1:
-                           echo 'INFORMATICA PA';
-                           break;
+                           echo 'INFORMATICA';
+                       break;
                        
                        case 2:
-                        echo 'oficina PA';
-                           break;
+                           echo 'oficina';
+                        break;
                        
                        default:
                    }

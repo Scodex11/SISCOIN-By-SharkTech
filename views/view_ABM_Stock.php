@@ -120,7 +120,7 @@
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Facundo Rodriguez</span>
+						<span class="user-name">Nombre Trabajador</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -237,17 +237,17 @@
 	<div class="pd-20 card-box mb-30">
 		<div class="clearfix mb-20">
 			<div class="pull-left">
-				<h4 class="text-blue h4">Tabla de Flores</h4>
+				<h4 class="text-blue h4">Equipamiento en Stock</h4>
 			</div>
 		</div>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th >N° Inventario</th>
-					<th >N° Serie</th>
-					<th >Nombre</th>
-					<th >Descripcion</th>
-					<th >Marca</th>
+					<th>N° Inventario</th>
+					<th>N° Serie</th>
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Marca</th>
 					
 				</tr>
 			</thead>
