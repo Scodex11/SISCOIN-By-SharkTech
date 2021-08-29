@@ -3,23 +3,23 @@
 
         // Instancio mi objeto de la clase 'model_user'
         $objetoUsere = new model_user();
-
+        
+        // Variable para ComboBox del Formulario
         $comboCargo = $objetoUsere->getCargo();
-        // REGISTRAR
+
+        // BOTÓN REGISTRAR
             if (isset($_POST['registrar'])) {
                 $usuario = $_POST['user'];
-                // Contraseña CIFRADA
-                $contraseña = MD5($_POST['pass']);
-
+                $contraseña = MD5($_POST['pass']);// Contraseña CIFRADA
                 $ID_Cargo = $_POST['cbx_cargo'];
 
-                $result = $objetoUsere->registrarUser($usuario, $contraseña, $ID_Cargo);
-                
+                // Validamos que los campos no estén vacíos
+                if (isset($usuario) || isset($contraseña) || isset($ID_Cargo)) {
+                    // Realizamos el alta del usuario
+                    $result = $objetoUsere->registrarUser($usuario, $contraseña, $ID_Cargo);
+                }
             }
 
-            
-
-
-
+// ESTE CONTROLADOR ES LLAMADO DESDE: views/view_Registrar.php 
         
 ?>

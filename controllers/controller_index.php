@@ -4,24 +4,25 @@
 // Instancio mi objeto de la clase 'model_user'
     $objetoUser = new model_user();
     
-// Iniciar Sesión
-session_start();
+// Decimos que comenzamos vamos a usar variables de SESSION
+    session_start();
     
-
+// Iniciar Sesión
     if (isset($_POST['ingresar'])) {
-
+// Tomamos los datos del formulario
         $user = $_POST['user'];
-        // Contraseña CIFRADA
-        $pass = MD5($_POST['pass']);
+        $pass = MD5($_POST['pass']);// Contraseña CIFRADA
+
 
         // Comprueba que no estén vacíos
         if (isset($user) && isset($pass)) {
-            // Pasamos parámetros a INICIAR SESIÓN para que compruebe si existe
+            // Pasamos parámetros al método para que compruebe si existe
             $ingresar = $objetoUser->iniciarSesion($user,$pass);
             
             // Guardamos el ID con el que se inició sesión
             if (!empty($_SESSION['ID_Cargo'])) {
-                
+
+                // Muestra la vista según su ID_Cargo
                     switch ($_SESSION['ID_Cargo']) {
                         case 1:
                             header('Location: views/view_index_informatica.php');
@@ -35,22 +36,17 @@ session_start();
                         header('Location: index.php');
                         break;
                     }
-                
-            }
-            
-           
+            }           
         }
-        
-    }
+  }
     
 
     // Botón para cerrar sesión
     if (isset($_POST['cerrar_sesion'])) {
         session_start();
-        
-        session_unset();
-
-        session_destroy();
+                
+        session_unset();    //Liberamos todas las variables de sesión
+        session_destroy();  //Destruye toda la información asociada con la sesión actual. 
         header('Location: index.php');
     }
 

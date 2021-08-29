@@ -41,18 +41,17 @@
                 // Creamos la variable de sesión con el cargo asociado al usuario ingresado
                    $_SESSION['ID_Cargo'] = $info['ID_Cargo'];
                 
-            }
-                
+            }     
         }
         
 // Método para registrar un trabajador con un cargo
         public function registrarUser($usuario, $contraseña, $ID_Cargo){
             $sql = "INSERT INTO `usuario` (`Usuario`, `Contraseña`, `ID_Cargo`) VALUES ('$usuario', '$contraseña', '$ID_Cargo')";
-
             $consulta = $this->db->query($sql);
 
+            // Validamos
             if (!$consulta) {
-                echo "<script>alert('¡HA OCURRIDO UN ERROR BOBLY!');</script>";
+                echo "<script>alert('¡Ha ocurrido un error al registrar un nuevo trabajador!');</script>";
             }else{
                 echo "<script>alert('¡Usuario registrado con éxito!');</script>";
             }

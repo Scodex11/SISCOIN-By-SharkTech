@@ -47,11 +47,13 @@
                 // Tomamos los datos de los textField
                       $inventario = $_POST['inventario'];           
       
+                //Validamos que el campo ID no esté vacío
                       if (isset($inventario) && !empty($inventario)) {
                               $result = $objetoEquip->bajaEquip($inventario);
                       }else{
-                              echo 'CAMPOS VACIOS';
+                        echo "<script>alert('¡El N° Inventario está vacío!');</script>";
                       }
+                // Refescamos la página
                       header('Location: #');
         }
 ?>
