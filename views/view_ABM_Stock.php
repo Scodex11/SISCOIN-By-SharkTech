@@ -250,6 +250,7 @@
 			</thead>
 			<tbody>
 			<?php
+			// Tabla manipulada desde 'controllers_equip'
                   foreach ($datosEquip as $dato){
                       echo "<tr> <td>".$dato['N°Inventario']."</td>
                       <td>".$dato['N°Serie']."</td>
@@ -258,7 +259,7 @@
 					  <td>".$dato['marca']."</td>
                       </tr>";
                   }
-          ?> 
+         	 ?> 
 			</tbody>
 		</table>
 		
