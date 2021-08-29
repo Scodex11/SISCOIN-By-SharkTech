@@ -27,32 +27,20 @@
 
         }
 
-    // Método para iniciar sesión
+        // Método para iniciar sesión
         public function iniciarSesion($user, $pass){
             $sql = "SELECT * FROM usuario WHERE Usuario = '$user' AND Contraseña = '$pass'";
-
-            // Comprobamos si ocurre un error al ejecutar la consulta
-
-            if(!$consulta = $this->db->query($sql)){
-                echo "<script>alert('¡Error al crear la consulta!');</script>";
+           
+            // Guardamos si existen filas
+            $filas = mysqli_num_rows($consulta = $this->db->query($sql));
+            if($filas == 0){
+                echo "<script>alert('¡Usuario y/o contraseña incorrectos!');</script>";
             }else{
+                // Creamos array asociativo con los registros de la consulta
+                $info = $consulta->fetch_assoc();
+                // Creamos la variable de sesión con el cargo asociado al usuario ingresado
+                   $_SESSION['ID_Cargo'] = $info['ID_Cargo'];
                 
-                // Devolvemos cant de registros en forma de NUMERO
-                $filas = $consulta->fetch_row();
-
-                // Comprobamos que haya registros
-
-                if ($filas == false) {
-                    echo "<script>alert('Error: usuario y/o clave incorrectos!!');</script>";
-                }else{
-                    // Guardo el ID del cargo del usuario que inició sesión
-                   $cargo = $filas[2];
-
-                    //Hago corresponder a '$cargo' el cargo del usuario
-                   $_SESSION['ID_Cargo'] = $cargo;
-                   
-                    
-                }
             }
                 
         }
