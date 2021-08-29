@@ -36,9 +36,6 @@
 	</script>
 </head>
 <body>
-	<!-- Pantalla carga -->
-	<!-- <//?php 
-	// require_once('pantalla_carga.php') ?> -->
 
 	<!-- HEADER  -->
 	<div class="header">
@@ -166,7 +163,7 @@
 
 
 <!-- Menú IZQUIERDA -->
-	<?php require_once('menu_informatica.php') ?>
+	<?php require_once('partials/menu_informatica.php') ?>
 	
 <!-- INFORMACIÓN INICIAL -->
 	<div class="main-container">

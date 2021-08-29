@@ -25,6 +25,7 @@
                 // Muestra la vista según su ID_Cargo
                     switch ($_SESSION['ID_Cargo']) {
                         case 1:
+                            $_SESSION['usuario'] = $nombre;
                             header('Location: views/view_index_informatica.php');
                         break;
                         

@@ -35,7 +35,7 @@
 <body>
 	<!-- Pantalla carga -->
 	<?php 
-	require_once('pantalla_carga.php') ?>
+	require_once('partials/pantalla_carga.php') ?>
 
 	<!-- HEADER -->
 	<div class="header">
@@ -164,7 +164,7 @@
 
 
 
-<?php require_once('menu_informatica.php') ?>
+<?php require_once('partials/menu_informatica.php') ?>
 
 
 <!-- Contenedor de Bienvenida  -->
@@ -177,7 +177,7 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							¡Bienvenido! <div class="weight-600 font-30 text-blue">Nombre Trabajador</div>
+							¡Bienvenido! <div class="weight-600 font-30 text-blue">nombreTrabajador </div>
 						</h4>
 						<p class="font-18 max-width-600">¡Espero que hoy tengas una gran jornada! 🦈</p>
 					</div>

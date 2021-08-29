@@ -95,7 +95,7 @@
 
 <!-- Menú IZQUIERDA -->
 
-	<?php require_once('menu_informatica.php') ?>
+	<?php require_once('partials/menu_informatica.php') ?>
 
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
