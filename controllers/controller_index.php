@@ -30,7 +30,7 @@
                         break;
                         
                         case 2:
-                            header('Location: views/view_oficina.php');
+                            header('Location: views/view_index_oficina.php');
                         break;
                         
                         default:
