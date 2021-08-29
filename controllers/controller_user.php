@@ -14,9 +14,12 @@
                 $ID_Cargo = $_POST['cbx_cargo'];
 
                 // Validamos que los campos no estén vacíos
-                if (isset($usuario) || isset($contraseña) || isset($ID_Cargo)) {
+                if (!empty($usuario) || !empty($contraseña) || !empty($ID_Cargo)) {
+                   
                     // Realizamos el alta del usuario
                     $result = $objetoUsere->registrarUser($usuario, $contraseña, $ID_Cargo);
+                }else{
+                    echo "<script>alert('¡Ha ocurrido un error al ejecutar el alta de usuario!');</script>";
                 }
             }
 

@@ -1,7 +1,7 @@
 <!-- Menú IZQUIERDA -->
 <div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="view_index.php">
+			<a href="view_index_informatica.php">
 				<img src="vendors/images/siscoin-logo.svg" alt="" class="dark-logo">
 				<img src="vendors/images/siscoin-logo.svg" alt="" class="light-logo">
 			</a>
@@ -13,7 +13,7 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a href="view_index.php" class="dropdown-toggle no-arrow">
+						<a href="view_index_informatica.php" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Inicio</span>
 						</a>
 					</li>
@@ -23,9 +23,6 @@
 						</a>
 						<ul class="submenu">
 							<li><a href="view_ABM_Stock.php">Gestion de Stock</a></li>
-						</ul>
-						<ul class="submenu">
-							<li><a href="view_ABM_Stock.php">Gestion de asdsadasdStock</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
