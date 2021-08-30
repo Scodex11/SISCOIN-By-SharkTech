@@ -1,6 +1,7 @@
 <?php 
-
 /*VALIDACIÓN DE TIPO DE CARGO*/
+
+
     session_start(); 
 	// Si no existe usuario te redirige al 
 	// para que te loguees
@@ -10,9 +11,9 @@
 		
 	
 	}else{
-		// Validamos que sea de OFICINA (ID_Cargo = 2)
+		// Validamos que sea de COMPRAS (ID_Cargo = 3)
 		// Si es diferente, entra al SWITCH, sino, abre normalmente
-		if ($_SESSION['ID_Cargo'] != 2) {
+		if ($_SESSION['ID_Cargo'] != 3) {
 			// Redirige al ID que pertenezca
 			switch ($_SESSION['ID_Cargo']) {
                 
@@ -20,8 +21,8 @@
 					// No le indicamos nada dentro porque INFORMATICA tiene acceso A TODO
 				break;
 
-				case $_SESSION['ID_Cargo'] == 3:
-					header('location: view_index_compras.php');
+				case $_SESSION['ID_Cargo'] == 2:
+					header('location: view_index_oficina.php');
 				break;
 				
 				case $_SESSION['ID_Cargo'] == 4:
@@ -51,13 +52,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>COMPRAS</title>
 </head>
 <body>
-    <h1>OFICINA</h1>
+    <h1>COMPRAS</h1>
 
     <p><?php echo 'Eres: '.$_SESSION['usuario']; ?></p>
-
     <form action="../index.php" method="POST">
 							<!-- <a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
 							<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>

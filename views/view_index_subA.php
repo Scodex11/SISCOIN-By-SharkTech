@@ -10,9 +10,9 @@
 		
 	
 	}else{
-		// Validamos que sea de OFICINA (ID_Cargo = 2)
-		// Si es diferente, entra al SWITCH, sino, abre normalmente
-		if ($_SESSION['ID_Cargo'] != 2) {
+		// Validamos que sea de subdireccion A (ID_Cargo = 5)
+        // Si es diferente, entra al SWITCH, sino, abre normalmente
+		if ($_SESSION['ID_Cargo'] != 5) {
 			// Redirige al ID que pertenezca
 			switch ($_SESSION['ID_Cargo']) {
                 
@@ -20,16 +20,16 @@
 					// No le indicamos nada dentro porque INFORMATICA tiene acceso A TODO
 				break;
 
+				case $_SESSION['ID_Cargo'] == 2:
+					header('location: view_index_oficina.php');
+				break;
+				
 				case $_SESSION['ID_Cargo'] == 3:
 					header('location: view_index_compras.php');
 				break;
 				
 				case $_SESSION['ID_Cargo'] == 4:
 					header('location: view_index_auditoria.php');
-				break;
-				
-				case $_SESSION['ID_Cargo'] == 5:
-					header('location: view_index_subA.php');
 				break;
 				
 				case $_SESSION['ID_Cargo'] == 6:
@@ -51,11 +51,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SUB A</title>
 </head>
 <body>
-    <h1>OFICINA</h1>
-
+    <h1>SUB A</h1>
     <p><?php echo 'Eres: '.$_SESSION['usuario']; ?></p>
 
     <form action="../index.php" method="POST">

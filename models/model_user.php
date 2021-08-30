@@ -40,7 +40,9 @@
                 $info = $consulta->fetch_assoc();
                 // Creamos la variable de sesión con el cargo asociado al usuario ingresado
                    $_SESSION['ID_Cargo'] = $info['ID_Cargo'];
+                // Variable de sesión asosciada al nombre de usuario
                    $_SESSION['usuario'] = $info['Usuario'];
+                   
                 
             }     
         }
