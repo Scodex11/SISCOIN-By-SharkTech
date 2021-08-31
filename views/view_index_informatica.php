@@ -161,9 +161,9 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="vendors/images/photo1.jpg" alt="">
+							<img src="vendors/images/vale.jpg" alt="">
 						</span>
-						<span class="user-name"><?php echo $_SESSION['usuario']?></span>
+						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -222,7 +222,7 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							¡Bienvenido! <div class="weight-600 font-30 text-blue">nombreTrabajador </div>
+							¡Bienvenido! <div class="weight-600 font-30 text-blue"><?php echo $_SESSION['nombreCompleto']?> </div>
 						</h4>
 						<p class="font-18 max-width-600">¡Espero que hoy tengas una gran jornada! 🦈</p>
 					</div>

@@ -71,7 +71,7 @@
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Nombre Trabajador</span>
+						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -139,8 +139,14 @@
 									<?php } ?> 
 								</select>
 							</div>
-							
-						</div>
+							</div>
+							<!-- text field name = "nombreCompleto" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Nombre Completo</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: Enrique Iglesias" name="nombreCompleto">
+								</div>
+							</div>
 
 							<div class="btn list">
 								<input type="submit" name="registrar" value="Registrar" class="btn btn-outline-success">

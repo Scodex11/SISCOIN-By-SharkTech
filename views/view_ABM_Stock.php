@@ -117,7 +117,7 @@
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Nombre Trabajador</span>
+						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -245,7 +245,6 @@
 					<th>Nombre</th>
 					<th>Descripcion</th>
 					<th>Marca</th>
-					
 				</tr>
 			</thead>
 			<tbody>

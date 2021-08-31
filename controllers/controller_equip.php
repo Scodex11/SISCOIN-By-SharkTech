@@ -8,7 +8,7 @@
         //Listamos TABLA EQUIPAMIENTO
         $datosEquip = $objetoEquip->getEquipamiento();
      
-        
+        session_start(); 
 
 
 // BOTON GUARDAR

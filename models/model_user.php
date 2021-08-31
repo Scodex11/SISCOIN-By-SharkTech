@@ -40,16 +40,18 @@
                 $info = $consulta->fetch_assoc();
                 // Creamos la variable de sesión con el cargo asociado al usuario ingresado
                    $_SESSION['ID_Cargo'] = $info['ID_Cargo'];
-                // Variable de sesión asosciada al nombre de usuario
+                // Variable de sesión asosciada al usuario
                    $_SESSION['usuario'] = $info['Usuario'];
+                // Variable de sesión asociada al nombreCompleto del usuario
+                   $_SESSION['nombreCompleto'] = $info['nombreCompleto'];
                    
                 
             }     
         }
         
 // Método para registrar un trabajador con un cargo
-        public function registrarUser($usuario, $contraseña, $ID_Cargo){
-            $sql = "INSERT INTO `usuario` (`Usuario`, `Contraseña`, `ID_Cargo`) VALUES ('$usuario', '$contraseña', '$ID_Cargo')";
+        public function registrarUser($usuario, $contraseña, $ID_Cargo, $nombreCompleto){
+            $sql = "INSERT INTO `usuario` (`Usuario`, `Contraseña`, `ID_Cargo`, `nombreCompleto`) VALUES ('$usuario', '$contraseña', '$ID_Cargo', '$nombreCompleto')";
             $consulta = $this->db->query($sql);
 
             // Validamos
