@@ -7,12 +7,14 @@
         // Variable para ComboBox del Formulario
         $comboCargo = $objetoUsere->getCargo();
 
+        // Listado de usuarios
+        $datosUser = $objetoUsere->getUser();
         
         session_start();
 
 
         // BOTÓN REGISTRAR
-            if (isset($_POST['registrar'])) {
+            if (isset($_POST['btn_registrar'])) {
                 $usuario = $_POST['user'];
                 $contraseña = MD5($_POST['pass']);// Contraseña CIFRADA
                 $ID_Cargo = $_POST['cbx_cargo'];
@@ -27,6 +29,23 @@
                     echo "<script>alert('¡Ha ocurrido un error al ejecutar el alta de usuario!');</script>";
                 }
             }
+
+            // BOTÓN ELIMINAR
+            if (isset($_POST['btn_eliminar'])) {
+                $usuario = $_POST['user']; 
+                $result = $objetoUsere->bajaUser($usuario);
+            }
+
+        // BOTÓN MODIFICAR
+            if (isset($_POST['btn_modificar'])) {
+
+                $nombreCompleto = $_POST['nombreCompleto'];
+                $usuario = $_POST['user']; 
+                $result = $objetoUsere->modificarUser($usuario, $nombreCompleto);
+            }
+        
+            
+
 
 // ESTE CONTROLADOR ES LLAMADO DESDE: views/view_Registrar.php 
         

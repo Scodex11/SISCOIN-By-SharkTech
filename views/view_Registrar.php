@@ -149,12 +149,46 @@
 							</div>
 
 							<div class="btn list">
-								<input type="submit" name="registrar" value="Registrar" class="btn btn-outline-success">
-								<!-- <input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning"> -->
-								<!-- <input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger"> -->
+								<input type="submit" name="btn_registrar" value="Registrar" class="btn btn-outline-success">
+								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
+								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
 							</div>
 					</form>
 					
+					<!-- Comienzo de Tabla EQUIPAMIENTO -->
+	<div class="pd-20 card-box mb-30">
+		<div class="clearfix mb-20">
+			<div class="pull-left">
+				<h4 class="text-blue h4">Equipamiento en Stock</h4>
+			</div>
+		</div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Usuario</th>
+					<th>Contraseña</th>
+					<th>Cargo</th>
+					<th>Nombre Completo</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+			// Tabla manipulada desde 'controllers_user'
+                  foreach ($datosUser as $dato){
+                      echo "<tr> <td>".$dato['Usuario']."</td>
+                      <td>".$dato['Contraseña']."</td>
+                      <td>".$dato['cargo']."</td>
+                      <td>".$dato['nombreCompleto']."</td>
+                      </tr>";
+                  }
+         	 ?> 
+			</tbody>
+		</table>
+		
+		</div>
+		
+	</div>
+	<!-- Fin de Tabla EQUIPAMIENTO -->
 				</div>
 
 

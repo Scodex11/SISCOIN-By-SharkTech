@@ -24,6 +24,9 @@
 						<ul class="submenu">
 							<li><a href="view_ABM_Stock.php">Gestion de Stock</a></li>
 						</ul>
+						<ul class="submenu">
+							<li><a href="view_ABM_Estado.php">Estado de Equipamiento</a></li>
+						</ul>
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">

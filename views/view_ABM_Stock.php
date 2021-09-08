@@ -219,6 +219,7 @@
 								</div>
 								
 							</div>	
+						
 						<!-- Botones ABM -->
 							<div class="btn list">
 								<input type="submit" name="btn_guardar" value="Guardar" class="btn btn-outline-success">

@@ -7,6 +7,7 @@
 // Decimos que comenzamos vamos a usar variables de SESSION
     session_start();
     
+    
 // Iniciar Sesión
     if (isset($_POST['ingresar'])) {
 // Tomamos los datos del formulario
@@ -59,7 +60,7 @@
 
     // Botón para cerrar sesión
     if (isset($_POST['cerrar_sesion'])) {
-        session_start();
+        session_start();//Usamos variables de session
                 
         session_unset();    //Liberamos todas las variables de sesión
         session_destroy();  //Destruye toda la información asociada con la sesión actual. 
@@ -69,5 +70,5 @@
     
     
 
-    require_once('views/view_login.php');
+    require_once('views/view_login.php'); 
 ?>

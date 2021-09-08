@@ -10,6 +10,7 @@
         private $ID_Cargo;
         private $contraseña;
         private $usuario;
+        private $usuarios;
 
 
 
@@ -19,6 +20,7 @@
         public function __construct(){
             $this->db = Conectar::conexion();
             $this->cargos = array();
+            $this->usuarios = array();
             $this->user ='';
             $this->pass ='';
             $this->contraseña ='';
@@ -38,6 +40,7 @@
             }else{
                 // Creamos array asociativo con los registros de la consulta
                 $info = $consulta->fetch_assoc();
+                
                 // Creamos la variable de sesión con el cargo asociado al usuario ingresado
                    $_SESSION['ID_Cargo'] = $info['ID_Cargo'];
                 // Variable de sesión asosciada al usuario
@@ -59,7 +62,39 @@
                 echo "<script>alert('¡Ha ocurrido un error al registrar un nuevo trabajador!');</script>";
             }else{
                 echo "<script>alert('¡Usuario registrado con éxito!');</script>";
+                header('Location: #');
             }
+            
+        }
+
+        public function bajaUser($usuario){
+
+            $sql = "DELETE FROM usuario WHERE Usuario = '$usuario'";
+            $consulta = $this->db->query($sql);
+
+          //  Validamos
+            if (!$consulta) {
+                echo "<script>alert('¡Ha ocurrido un error al ejecutar la baja!');</script>";
+            }else{
+                echo "<script>alert('¡Usuario eliminado con éxito!');</script>";
+                header('Location: #');
+            }
+
+        }
+
+        public function modificarUser($usuario, $nombreCompleto){
+
+            $sql = "UPDATE usuario SET nombreCompleto='$nombreCompleto' WHERE usuario.Usuario='$usuario'";
+            $consulta = $this->db->query($sql);
+
+            //  Validamos
+            if (!$consulta) {
+                echo "<script>alert('¡Ha ocurrido un error al ejecutar la modificación!');</script>";
+            }else{
+                echo "<script>alert('¡Usuario modificado con éxito!');</script>";
+                header('Location: #');
+            }
+
         }
 
 
@@ -74,6 +109,21 @@
 			}
 			return $this->cargos;
         }
+
+    // Tomar tipo de cargo
+    public function getUser(){
+        $sql = "SELECT `Usuario`, `Contraseña`, `cargo`, `nombreCompleto` 
+        FROM `usuario` 
+        LEFT JOIN cargos ON usuario.ID_Cargo = cargos.ID_Cargo";
+
+        $consulta = $this->db->query($sql);
+
+        while($filas=$consulta->fetch_assoc()){
+            $this->usuarios[]=$filas;
+        }
+        return $this->usuarios;
+    }
+
     }
 
 ?>

@@ -7,7 +7,10 @@
 
         //Listamos TABLA EQUIPAMIENTO
         $datosEquip = $objetoEquip->getEquipamiento();
-     
+
+        $datosEstado = $objetoEquip->getTablaPasa();
+        // Combo PASA
+        $cbxEstado = $objetoEquip->getEstados();
         session_start(); 
 
 
@@ -56,4 +59,45 @@
                 // Refescamos la página
                       header('Location: #');
         }
+
+
+
+
+/* COMIENZO BOTONES ABM_ESTADO */
+
+// Alta Pasa
+        if (isset($_POST['btn_guardarEstado'])) {
+                $fecha_Inicio = $_POST['fechaInicio']; 
+                $fecha_Cambio = $_POST['fechaCambio']; 
+                $inventario = $_POST['inventario']; 
+                $ID_Estado  = $_POST['cbx_Estado'];
+
+                $result = $objetoEquip->altaPasa($fecha_Inicio, $inventario, $ID_Estado, $fecha_Cambio);
+                
+                
+               
+        }
+
+        // Modificacion Pasa
+        if (isset($_POST['btn_modificarEstado'])) {
+                $fecha_Cambio = $_POST['fechaCambio']; 
+                $inventario = $_POST['inventario']; 
+                $ID_Estado  = $_POST['cbx_Estado'];
+
+                
+                if (isset($fecha_Cambio) && isset($inventario) && isset($ID_Estado)) {
+                        $result = $objetoEquip->modificarPasa($inventario, $ID_Estado, $fecha_Cambio);
+                        if ($result) {
+                                // Actualizamos la página
+                               header('Location: #');
+                       }
+                }else{
+                        echo "<script>alert('Fecha cambio, inventario o Estado SIN VALORES');</script>";
+                }
+                
+          
+               
+        }
+
+
 ?>

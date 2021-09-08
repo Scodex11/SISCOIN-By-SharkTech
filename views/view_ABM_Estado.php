@@ -1,47 +1,5 @@
 <?php 
-/*VALIDACIÓN DE TIPO DE CARGO*/
-	session_start(); 
-	// Si no existe usuario te redirige al 
-	// para que te loguees
-	if(empty($_SESSION['usuario'])){
-		
-		header('location: ../index.php');
-		
-	
-	}else{
-		// Validamos que sea de AUDITORIA (ID_Cargo = 4)
-        // Si es diferente, entra al SWITCH, sino, abre normalmente
-		if ($_SESSION['ID_Cargo'] != 4) {
-			// Redirige al ID que pertenezca
-			switch ($_SESSION['ID_Cargo']) {
-                
-                case $_SESSION['ID_Cargo'] == 1:
-					// No le indicamos nada dentro porque INFORMATICA tiene acceso A TODO
-				break;
-
-				case $_SESSION['ID_Cargo'] == 2:
-					header('location: view_index_oficina.php');
-				break;
-				
-				case $_SESSION['ID_Cargo'] == 3:
-					header('location: view_index_compras.php');
-				break;
-				
-				case $_SESSION['ID_Cargo'] == 5:
-					header('location: view_index_subA.php');
-				break;
-				
-				case $_SESSION['ID_Cargo'] == 6:
-					header('location: view_index_subB.php');
-				break;
-				
-				default:
-					header('location: ../index.php');
-					break;
-			}
-		}
-		
-	}
+	require_once('../controllers/controller_equip.php');
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +7,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>SISCOIN by SharkTech</title>
+	<title>ABM STOCK EQUIPAMIENTO</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -64,9 +22,8 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -79,11 +36,8 @@
 	</script>
 </head>
 <body>
-	<!-- Pantalla carga -->
-	<?php 
-	require_once('partials/pantalla_carga.php') ?>
 
-	<!-- HEADER -->
+	<!-- HEADER  -->
 	<div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -157,7 +111,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- DESPLEGABLE DE USUARIO -->
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -177,8 +130,8 @@
 				</div>
 			</div>
 		</div>
+		</div>
 	</div>
-
 
 	<!-- Menú configuracion de color  -->
 	<div class="right-sidebar">
@@ -209,103 +162,128 @@
 	</div>
 
 
-
-<?php require_once('partials/menu_auditoria.php') ?>
-
-
-<!-- Contenedor de Bienvenida  -->
+<!-- Menú IZQUIERDA -->
+	<?php require_once('partials/menu_informatica.php') ?>
+	
+<!-- INFORMACIÓN INICIAL -->
 	<div class="main-container">
-		<div class="pd-ltr-20">
-			<div class="card-box pd-20 height-100-p mb-30">
-				<div class="row align-items-center">
-					<div class="col-md-4">
-						<img src="vendors/images/banner-img.png" alt="">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				
+			<!-- Comienzo de CONTENEDOR FORMULARIO -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4">¡Gestiona el Estado! 🦈</h4>
+							<p class="mb-30">Rellene el formulario a continuación...</p>
+						</div>
 					</div>
-					<div class="col-md-8">
-						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							¡Bienvenido! <div class="weight-600 font-30 text-blue"><?php echo $_SESSION['nombreCompleto']?> </div>
-						</h4>
-						<p class="font-18 max-width-600">¡Espero que hoy tengas una gran jornada! 🦈</p>
-					</div>
+
+					
+					<!-- FORMULARIO DE EQUIPAMIENTO -->
+					<form action="#" method="post">
+					
+						
+						<!-- cbx name = "fechaInicio	" -->
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Fecha Ingreso</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaInicio">
+							</div>
+						</div>
+
+							<!-- Estados name="cbx_Estado" -->
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Estado</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name = "cbx_Estado">
+									<option selected="">Elige...</option>
+									<?php 
+										foreach($cbxEstado as $datos) { ?>
+											<option value="<?php echo $datos['ID_Estado']; ?>"><?php echo $datos['Nombre_Estado']; ?></option>
+									<?php } ?> 
+								</select>
+							</div>
+						</div>	
+							<!-- N°Inventario name="inventario" -->
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name = "inventario">
+									<option selected="">Elige...</option>
+									<?php 
+										foreach($datosEquip as $datos) { ?>
+											<option value="<?php echo $datos['N°Inventario']; ?>"><?php echo $datos['N°Inventario']." ".$datos['Nombre']; ?></option>
+									<?php } ?> 
+								</select>
+								</div>
+							</div>
+						<!-- Text field: name="fechaCambio" -->	
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Fecha Cambio</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaCambio">
+								</div>
+							</div>
+							
+						<!-- Botones ABM -->
+							<div class="btn list">
+								<input type="submit" name="btn_guardarEstado" value="Guardar" class="btn btn-outline-success">
+								<input type="submit" name="btn_modificarEstado" value ="Modificar" class="btn btn-outline-warning">
+								<input type="submit" name="btn_eliminarEstado" value="Eliminar" class="btn btn-outline-danger">
+							</div>
+					</form>
+					
 				</div>
+	<!-- Fin CONTENEDOR FORMULARIO -->
+
+	<!-- Comienzo de Tabla EQUIPAMIENTO -->
+	<div class="pd-20 card-box mb-30">
+		<div class="clearfix mb-20">
+			<div class="pull-left">
+				<h4 class="text-blue h4">Estado de Equipamiento</h4>
 			</div>
-	<!-- Gráficas -->
-			<div class="row">
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart"></div>
-							</div>
-							<div class="widget-data">
-								<div class="h4 mb-0">2020</div>
-								<div class="weight-600 font-14">-</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart2"></div>
-							</div>
-							<div class="widget-data">
-								<div class="h4 mb-0">400</div>
-								<div class="weight-600 font-14">-</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart3"></div>
-							</div>
-							<div class="widget-data">
-								<div class="h4 mb-0">350</div>
-								<div class="weight-600 font-14">-</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 mb-30">
-					<div class="card-box height-100-p widget-style1">
-						<div class="d-flex flex-wrap align-items-center">
-							<div class="progress-data">
-								<div id="chart4"></div>
-							</div>
-							<div class="widget-data">
-								<div class="h4 mb-0">$666</div>
-								<div class="weight-600 font-14">-</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		</div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Fecha Inicio</th>
+					<th>Nombre Equipamiento</th>
+					<th>Estado</th>
+					<th>Fecha Cambio</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+			// Tabla manipulada desde 'controllers_equip'
+                  foreach ($datosEstado as $dato){
+                      echo "<tr> <td>".$dato['Fecha_Inicio']."</td>
+                      <td>".$dato['nombre']."</td>
+                      <td>".$dato['nombre_Estado']."</td>
+                      <td>".$dato['Fecha_Cambio']."</td>
+                      </tr>";
+                  }
+         	 ?> 
+			</tbody>
+		</table>
+		
+		</div>
+		
+	</div>
+	<!-- Fin de Tabla EQUIPAMIENTO -->
+				
+
 			</div>
-			<div class="row">
-				<div class="col-xl-8 mb-30">
-					<div class="card-box height-100-p pd-20">
-						<h2 class="h4 mb-20">Actividad</h2>
-						<div id="chart5"></div>
-					</div>
-				</div>
+<!-- Créditos al creador de la plantilla -->
+			<div class="footer-wrap pd-20 mb-20 card-box">
+				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
 			</div>
-			
-			
 		</div>
 	</div>
-<!-- js -->
+	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>
 	<script src="vendors/scripts/layout-settings.js"></script>
-	<script src="src/plugins/apexcharts/apexcharts.min.js"></script>
-	<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-	<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-	<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-	<script src="vendors/scripts/dashboard.js"></script>
 </body>
 </html>
