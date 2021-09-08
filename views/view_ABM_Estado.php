@@ -174,7 +174,7 @@
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">¡Gestiona tu equipamiento! 🦈</h4>
+							<h4 class="text-blue h4">¡Gestiona el Estado! 🦈</h4>
 							<p class="mb-30">Rellene el formulario a continuación...</p>
 						</div>
 					</div>
@@ -183,48 +183,54 @@
 					<!-- FORMULARIO DE EQUIPAMIENTO -->
 					<form action="#" method="post">
 					
-						<!-- Text field: name="inventario" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: 123" name="inventario">
-								</div>
-							</div>
-						<!-- Text field: name="serie" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">N°Serie</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: qwer1234" name="serie">
-								</div>
-							</div>
-						<!-- Text field: name="nombre" -->	
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Monitor LED" name="nombre">
-								</div>
-							</div>
-						<!-- Text field: name="descripcion" -->	
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Descripcion: </label>
-								<div class="col-sm-6 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Monitor HP 35 pulgadas con lucesistas gamer porque es para gamers" name="descripcion">
-								</div>
-							</div>
-						<!-- Text field: name="marca" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Marca</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Logitech" name="marca">
-								</div>
-								
-							</div>	
 						
+						<!-- cbx name = "fechaInicio	" -->
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Fecha Ingreso</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaInicio">
+							</div>
+						</div>
+
+							<!-- Estados name="cbx_Estado" -->
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Estado</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name = "cbx_Estado">
+									<option selected="">Elige...</option>
+									<?php 
+										foreach($cbxEstado as $datos) { ?>
+											<option value="<?php echo $datos['ID_Estado']; ?>"><?php echo $datos['Nombre_Estado']; ?></option>
+									<?php } ?> 
+								</select>
+							</div>
+						</div>	
+							<!-- N°Inventario name="inventario" -->
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name = "inventario">
+									<option selected="">Elige...</option>
+									<?php 
+										foreach($datosEquip as $datos) { ?>
+											<option value="<?php echo $datos['N°Inventario']; ?>"><?php echo $datos['N°Inventario']." ".$datos['Nombre']; ?></option>
+									<?php } ?> 
+								</select>
+								</div>
+							</div>
+						<!-- Text field: name="fechaCambio" -->	
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Fecha Cambio</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaCambio">
+								</div>
+							</div>
+							
 						<!-- Botones ABM -->
 							<div class="btn list">
-								<input type="submit" name="btn_guardar" value="Guardar" class="btn btn-outline-success">
-								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
-								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
+								<input type="submit" name="btn_guardarEstado" value="Guardar" class="btn btn-outline-success">
+								<input type="submit" name="btn_modificarEstado" value ="Modificar" class="btn btn-outline-warning">
+								<input type="submit" name="btn_eliminarEstado" value="Eliminar" class="btn btn-outline-danger">
 							</div>
 					</form>
 					
@@ -235,28 +241,26 @@
 	<div class="pd-20 card-box mb-30">
 		<div class="clearfix mb-20">
 			<div class="pull-left">
-				<h4 class="text-blue h4">Equipamiento en Stock</h4>
+				<h4 class="text-blue h4">Estado de Equipamiento</h4>
 			</div>
 		</div>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>N° Inventario</th>
-					<th>N° Serie</th>
-					<th>Nombre</th>
-					<th>Descripcion</th>
-					<th>Marca</th>
+					<th>Fecha Inicio</th>
+					<th>Nombre Equipamiento</th>
+					<th>Estado</th>
+					<th>Fecha Cambio</th>
 				</tr>
 			</thead>
 			<tbody>
 			<?php
 			// Tabla manipulada desde 'controllers_equip'
-                  foreach ($datosEquip as $dato){
-                      echo "<tr> <td>".$dato['N°Inventario']."</td>
-                      <td>".$dato['N°Serie']."</td>
-                      <td>".$dato['Nombre']."</td>
-                      <td>".$dato['descripcion']."</td>
-					  <td>".$dato['marca']."</td>
+                  foreach ($datosEstado as $dato){
+                      echo "<tr> <td>".$dato['Fecha_Inicio']."</td>
+                      <td>".$dato['nombre']."</td>
+                      <td>".$dato['nombre_Estado']."</td>
+                      <td>".$dato['Fecha_Cambio']."</td>
                       </tr>";
                   }
          	 ?> 

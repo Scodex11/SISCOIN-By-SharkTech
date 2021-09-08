@@ -1,3 +1,48 @@
+<?php 
+/*VALIDACIÓN DE TIPO DE CARGO*/
+
+	session_start(); 
+	// Si no existe usuario te redirige al 
+	// para que te loguees
+	if(empty($_SESSION['usuario'])){
+		
+		header('location: ../index.php');
+		
+	
+	}else{
+		// Validamos que sea de informatica (ID_Cargo = 1)
+		// Si es diferente, entra al SWITCH, sino, abre normalmente
+		if ($_SESSION['ID_Cargo'] != 1) {
+			// Redirige al ID que pertenezca
+			switch ($_SESSION['ID_Cargo']) {
+				case $_SESSION['ID_Cargo'] == 2:
+					header('location: view_index_oficina.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 3:
+					header('location: view_index_compras.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 4:
+					header('location: view_index_auditoria.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 5:
+					header('location: view_index_subA.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 6:
+					header('location: view_index_subB.php');
+				break;
+				
+				default:
+					header('location: ../index.php');
+					break;
+			}
+		}
+		
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +80,7 @@
 <body>
 	<!-- Pantalla carga -->
 	<?php 
-	require_once('pantalla_carga.php') ?>
+	require_once('partials/pantalla_carga.php') ?>
 
 	<!-- HEADER -->
 	<div class="header">
@@ -116,9 +161,9 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="vendors/images/photo1.jpg" alt="">
+							<img src="vendors/images/vale.jpg" alt="">
 						</span>
-						<span class="user-name">Nombre Trabajador</span>
+						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -164,7 +209,7 @@
 
 
 
-<?php require_once('menu_informatica.php') ?>
+<?php require_once('partials/menu_informatica.php') ?>
 
 
 <!-- Contenedor de Bienvenida  -->
@@ -177,7 +222,7 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							¡Bienvenido! <div class="weight-600 font-30 text-blue">Nombre Trabajador</div>
+							¡Bienvenido! <div class="weight-600 font-30 text-blue"><?php echo $_SESSION['nombreCompleto']?> </div>
 						</h4>
 						<p class="font-18 max-width-600">¡Espero que hoy tengas una gran jornada! 🦈</p>
 					</div>

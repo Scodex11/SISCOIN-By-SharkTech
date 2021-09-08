@@ -4,55 +4,71 @@
 // Instancio mi objeto de la clase 'model_user'
     $objetoUser = new model_user();
     
-// Iniciar Sesión
-
+// Decimos que comenzamos vamos a usar variables de SESSION
+    session_start();
     
-
+    
+// Iniciar Sesión
     if (isset($_POST['ingresar'])) {
-        session_start();
-
+// Tomamos los datos del formulario
         $user = $_POST['user'];
-        // Contraseña CIFRADA
-        $pass = MD5($_POST['pass']);
+        $pass = MD5($_POST['pass']);// Contraseña CIFRADA
+
 
         // Comprueba que no estén vacíos
         if (isset($user) && isset($pass)) {
-            // Pasamos parámetros a INICIAR SESIÓN para que compruebe si existe
+            // Pasamos parámetros al método para que compruebe si existe
             $ingresar = $objetoUser->iniciarSesion($user,$pass);
-
+            
             // Guardamos el ID con el que se inició sesión
-            $cargo = $_SESSION['ID_Cargo'];
-            // Validamos cargo y enviamos a su respectiva ventana
-            if (isset($cargo)) {
-                // 
-             
+            if (!empty($_SESSION['ID_Cargo'])) {
 
-                switch ($cargo) {
-                    case 1:
-                        header('Location: views/view_index_informatica.php');
-                    break;
-                    
-                    case 2:
-                        header('Location: views/view_oficina.php');
-                    break;
-                    
-                    default:
-                }
-            }
+                // Muestra la vista según su ID_Cargo
+                    switch ($_SESSION['ID_Cargo']) {
+                        case 1:
+                            header('Location: views/view_index_informatica.php');
+                        break;
+                        
+                        case 2:
+                            header('Location: views/view_index_oficina.php');
+                        break;
+
+                        case 3:
+                            header('Location: views/view_index_compras.php');
+                        break;
+
+                        case 4:
+                            header('Location: views/view_index_auditoria.php');
+                        break;
+
+                        case 5:
+                            header('Location: views/view_index_subA.php');
+                        break;
+
+                        case 6:
+                            header('Location: views/view_index_subB.php');
+                        break;
+                        
+                        default:
+                        header('Location: index.php');
+                        break;
+                    }
+            }           
         }
-        
-    }
+  }
     
+
+    // Botón para cerrar sesión
     if (isset($_POST['cerrar_sesion'])) {
+        session_start();//Usamos variables de session
+                
+        session_unset();    //Liberamos todas las variables de sesión
+        session_destroy();  //Destruye toda la información asociada con la sesión actual. 
         header('Location: index.php');
-        session_unset();
-
-        session_destroy();
-
     }
 
     
     
 
-    require_once('views/view_login.php');
+    require_once('views/view_login.php'); 
 ?>

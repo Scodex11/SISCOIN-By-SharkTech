@@ -71,7 +71,7 @@
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Nombre Trabajador</span>
+						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<form action="../index.php" method="POST">
@@ -95,7 +95,7 @@
 
 <!-- Menú IZQUIERDA -->
 
-	<?php require_once('menu_informatica.php') ?>
+	<?php require_once('partials/menu_informatica.php') ?>
 
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
@@ -139,16 +139,56 @@
 									<?php } ?> 
 								</select>
 							</div>
-							
-						</div>
+							</div>
+							<!-- text field name = "nombreCompleto" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Nombre Completo</label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Ej: Enrique Iglesias" name="nombreCompleto">
+								</div>
+							</div>
 
 							<div class="btn list">
-								<input type="submit" name="registrar" value="Registrar" class="btn btn-outline-success">
-								<!-- <input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning"> -->
-								<!-- <input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger"> -->
+								<input type="submit" name="btn_registrar" value="Registrar" class="btn btn-outline-success">
+								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
+								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
 							</div>
 					</form>
 					
+					<!-- Comienzo de Tabla EQUIPAMIENTO -->
+	<div class="pd-20 card-box mb-30">
+		<div class="clearfix mb-20">
+			<div class="pull-left">
+				<h4 class="text-blue h4">Equipamiento en Stock</h4>
+			</div>
+		</div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Usuario</th>
+					<th>Contraseña</th>
+					<th>Cargo</th>
+					<th>Nombre Completo</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+			// Tabla manipulada desde 'controllers_user'
+                  foreach ($datosUser as $dato){
+                      echo "<tr> <td>".$dato['Usuario']."</td>
+                      <td>".$dato['Contraseña']."</td>
+                      <td>".$dato['cargo']."</td>
+                      <td>".$dato['nombreCompleto']."</td>
+                      </tr>";
+                  }
+         	 ?> 
+			</tbody>
+		</table>
+		
+		</div>
+		
+	</div>
+	<!-- Fin de Tabla EQUIPAMIENTO -->
 				</div>
 
 

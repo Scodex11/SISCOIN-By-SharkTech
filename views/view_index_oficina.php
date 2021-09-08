@@ -1,5 +1,48 @@
 <?php 
-	require_once('../controllers/controller_equip.php');
+
+/*VALIDACIÓN DE TIPO DE CARGO*/
+    session_start(); 
+	// Si no existe usuario te redirige al 
+	// para que te loguees
+	if(empty($_SESSION['usuario'])){
+		
+		header('location: ../index.php');
+		
+	
+	}else{
+		// Validamos que sea de OFICINA (ID_Cargo = 2)
+		// Si es diferente, entra al SWITCH, sino, abre normalmente
+		if ($_SESSION['ID_Cargo'] != 2) {
+			// Redirige al ID que pertenezca
+			switch ($_SESSION['ID_Cargo']) {
+                
+                case $_SESSION['ID_Cargo'] == 1:
+					// No le indicamos nada dentro porque INFORMATICA tiene acceso A TODO
+				break;
+
+				case $_SESSION['ID_Cargo'] == 3:
+					header('location: view_index_compras.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 4:
+					header('location: view_index_auditoria.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 5:
+					header('location: view_index_subA.php');
+				break;
+				
+				case $_SESSION['ID_Cargo'] == 6:
+					header('location: view_index_subB.php');
+				break;
+				
+				default:
+					header('location: ../index.php');
+					break;
+			}
+		}
+		
+	}
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +50,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>ABM STOCK EQUIPAMIENTO</title>
+	<title>SISCOIN by SharkTech</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -22,8 +65,9 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
-
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -36,8 +80,11 @@
 	</script>
 </head>
 <body>
+	<!-- Pantalla carga -->
+	<?php 
+	require_once('partials/pantalla_carga.php') ?>
 
-	<!-- HEADER  -->
+	<!-- HEADER -->
 	<div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -111,6 +158,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- DESPLEGABLE DE USUARIO -->
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -130,8 +178,8 @@
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
+
 
 	<!-- Menú configuracion de color  -->
 	<div class="right-sidebar">
@@ -162,124 +210,103 @@
 	</div>
 
 
-<!-- Menú IZQUIERDA -->
-	<?php require_once('partials/menu_informatica.php') ?>
-	
-<!-- INFORMACIÓN INICIAL -->
+
+<?php require_once('partials/menu_oficina.php') ?>
+
+
+<!-- Contenedor de Bienvenida  -->
 	<div class="main-container">
-		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				
-			<!-- Comienzo de CONTENEDOR FORMULARIO -->
-				<div class="pd-20 card-box mb-30">
-					<div class="clearfix">
-						<div class="pull-left">
-							<h4 class="text-blue h4">¡Gestiona tu equipamiento! 🦈</h4>
-							<p class="mb-30">Rellene el formulario a continuación...</p>
+		<div class="pd-ltr-20">
+			<div class="card-box pd-20 height-100-p mb-30">
+				<div class="row align-items-center">
+					<div class="col-md-4">
+						<img src="vendors/images/banner-img.png" alt="">
+					</div>
+					<div class="col-md-8">
+						<h4 class="font-20 weight-500 mb-10 text-capitalize">
+							¡Bienvenido! <div class="weight-600 font-30 text-blue"><?php echo $_SESSION['nombreCompleto']?> </div>
+						</h4>
+						<p class="font-18 max-width-600">¡Espero que hoy tengas una gran jornada! 🦈</p>
+					</div>
+				</div>
+			</div>
+	<!-- Gráficas -->
+			<div class="row">
+				<div class="col-xl-3 mb-30">
+					<div class="card-box height-100-p widget-style1">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="progress-data">
+								<div id="chart"></div>
+							</div>
+							<div class="widget-data">
+								<div class="h4 mb-0">2020</div>
+								<div class="weight-600 font-14">-</div>
+							</div>
 						</div>
 					</div>
-
-					
-					<!-- FORMULARIO DE EQUIPAMIENTO -->
-					<form action="#" method="post">
-					
-						<!-- Text field: name="inventario" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: 123" name="inventario">
-								</div>
-							</div>
-						<!-- Text field: name="serie" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">N°Serie</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: qwer1234" name="serie">
-								</div>
-							</div>
-						<!-- Text field: name="nombre" -->	
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Nombre: </label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Monitor LED" name="nombre">
-								</div>
-							</div>
-						<!-- Text field: name="descripcion" -->	
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Descripcion: </label>
-								<div class="col-sm-6 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Monitor HP 35 pulgadas con lucesistas gamer porque es para gamers" name="descripcion">
-								</div>
-							</div>
-						<!-- Text field: name="marca" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Marca</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Logitech" name="marca">
-								</div>
-								
-							</div>	
-						
-						<!-- Botones ABM -->
-							<div class="btn list">
-								<input type="submit" name="btn_guardar" value="Guardar" class="btn btn-outline-success">
-								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
-								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
-							</div>
-					</form>
-					
 				</div>
-	<!-- Fin CONTENEDOR FORMULARIO -->
-
-	<!-- Comienzo de Tabla EQUIPAMIENTO -->
-	<div class="pd-20 card-box mb-30">
-		<div class="clearfix mb-20">
-			<div class="pull-left">
-				<h4 class="text-blue h4">Equipamiento en Stock</h4>
+				<div class="col-xl-3 mb-30">
+					<div class="card-box height-100-p widget-style1">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="progress-data">
+								<div id="chart2"></div>
+							</div>
+							<div class="widget-data">
+								<div class="h4 mb-0">400</div>
+								<div class="weight-600 font-14">-</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 mb-30">
+					<div class="card-box height-100-p widget-style1">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="progress-data">
+								<div id="chart3"></div>
+							</div>
+							<div class="widget-data">
+								<div class="h4 mb-0">350</div>
+								<div class="weight-600 font-14">-</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 mb-30">
+					<div class="card-box height-100-p widget-style1">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="progress-data">
+								<div id="chart4"></div>
+							</div>
+							<div class="widget-data">
+								<div class="h4 mb-0">$666</div>
+								<div class="weight-600 font-14">-</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			<div class="row">
+				<div class="col-xl-8 mb-30">
+					<div class="card-box height-100-p pd-20">
+						<h2 class="h4 mb-20">Actividad</h2>
+						<div id="chart5"></div>
+					</div>
+				</div>
+			</div>
+			
+			
 		</div>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>N° Inventario</th>
-					<th>N° Serie</th>
-					<th>Nombre</th>
-					<th>Descripcion</th>
-					<th>Marca</th>
-				</tr>
-			</thead>
-			<tbody>
-			<?php
-			// Tabla manipulada desde 'controllers_equip'
-                  foreach ($datosEquip as $dato){
-                      echo "<tr> <td>".$dato['N°Inventario']."</td>
-                      <td>".$dato['N°Serie']."</td>
-                      <td>".$dato['Nombre']."</td>
-                      <td>".$dato['descripcion']."</td>
-					  <td>".$dato['marca']."</td>
-                      </tr>";
-                  }
-         	 ?> 
-			</tbody>
-		</table>
-		
-		</div>
-		
 	</div>
-	<!-- Fin de Tabla EQUIPAMIENTO -->
-				
-
-			</div>
-<!-- Créditos al creador de la plantilla -->
-			<div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
-			</div>
-		</div>
-	</div>
-	<!-- js -->
+<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>
 	<script src="vendors/scripts/layout-settings.js"></script>
+	<script src="src/plugins/apexcharts/apexcharts.min.js"></script>
+	<script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="vendors/scripts/dashboard.js"></script>
 </body>
 </html>
