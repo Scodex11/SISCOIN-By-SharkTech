@@ -56,7 +56,7 @@
             }           
         }
   }
-    
+
 
     // Botón para cerrar sesión
     if (isset($_POST['cerrar_sesion'])) {

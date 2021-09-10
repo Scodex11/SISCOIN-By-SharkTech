@@ -44,6 +44,15 @@
                 $result = $objetoUsere->modificarUser($usuario, $nombreCompleto);
             }
         
+
+            // BOTÓN MODIFICAR CONTRASEÑA
+            if (isset($_POST['btn_pass'])) {
+
+                $usuario = $_POST['user']; 
+                $contraseña = MD5($_POST['pass']);
+
+                $result = $objetoUsere->modificarPass($usuario, $contraseña); 
+            }
             
 
 

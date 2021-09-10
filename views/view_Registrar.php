@@ -152,6 +152,7 @@
 								<input type="submit" name="btn_registrar" value="Registrar" class="btn btn-outline-success">
 								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
 								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
+								<input type="submit" name="btn_pass" value="Modificar Contraseña" class="btn btn-outline-primary">
 							</div>
 					</form>
 					

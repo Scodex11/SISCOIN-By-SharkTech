@@ -47,7 +47,7 @@
                    $_SESSION['usuario'] = $info['Usuario'];
                 // Variable de sesión asociada al nombreCompleto del usuario
                    $_SESSION['nombreCompleto'] = $info['nombreCompleto'];
-                   
+                
                 
             }     
         }
@@ -97,6 +97,19 @@
 
         }
 
+        public function modificarPass($usuario, $contraseña){
+
+            $sql = "UPDATE `usuario` SET `contraseña` = '$contraseña' WHERE `usuario`.`Usuario` = '$usuario'";
+            $consulta = $this->db->query($sql);
+
+            //  Validamos
+            if (!$consulta) {
+                echo "<script>alert('¡Ha ocurrido un error al ejecutar la modificación!');</script>";
+            }else{
+                echo "<script>alert('¡Contraseña modificada con éxito!');</script>";
+            }
+
+        }
 
         // Tomar tipo de cargo
         public function getCargo(){

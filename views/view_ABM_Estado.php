@@ -182,8 +182,20 @@
 					
 					<!-- FORMULARIO DE EQUIPAMIENTO -->
 					<form action="#" method="post">
-					
-						
+
+						<!-- N°Inventario name="inventario" -->
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name = "inventario">
+									<option selected="">Elige...</option>
+									<?php 
+										foreach($datosEquip as $datos) { ?>
+											<option value="<?php echo $datos['N°Inventario']; ?>"><?php echo $datos['N°Inventario']." ".$datos['Nombre']; ?></option>
+									<?php } ?> 
+								</select>
+								</div>
+							</div>
 						<!-- cbx name = "fechaInicio	" -->
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Fecha Ingreso</label>
@@ -205,19 +217,7 @@
 								</select>
 							</div>
 						</div>	
-							<!-- N°Inventario name="inventario" -->
-							<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
-							<div class="col-sm-12 col-md-10">
-								<select class="custom-select col-12" name = "inventario">
-									<option selected="">Elige...</option>
-									<?php 
-										foreach($datosEquip as $datos) { ?>
-											<option value="<?php echo $datos['N°Inventario']; ?>"><?php echo $datos['N°Inventario']." ".$datos['Nombre']; ?></option>
-									<?php } ?> 
-								</select>
-								</div>
-							</div>
+							
 						<!-- Text field: name="fechaCambio" -->	
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">Fecha Cambio</label>
@@ -230,7 +230,7 @@
 							<div class="btn list">
 								<input type="submit" name="btn_guardarEstado" value="Guardar" class="btn btn-outline-success">
 								<input type="submit" name="btn_modificarEstado" value ="Modificar" class="btn btn-outline-warning">
-								<input type="submit" name="btn_eliminarEstado" value="Eliminar" class="btn btn-outline-danger">
+								<!-- <input type="submit" name="btn_eliminarEstado" value="Eliminar" class="btn btn-outline-danger"> -->
 							</div>
 					</form>
 					
