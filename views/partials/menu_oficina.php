@@ -22,7 +22,7 @@
 							<span class="micon dw dw-edit2"></span><span class="mtext">Solicitudes</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="#">Nueva Solicitud</a></li>
+							<li><a href="view_solicita.php">Nueva Solicitud</a></li>
 						</ul>
 						<ul class="submenu">
 							<li><a href="#">Equipamiento Total Oficina</a></li>

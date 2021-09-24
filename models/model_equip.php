@@ -132,10 +132,6 @@
         
 
 
-
-
-
-
         // Alta en PASA
         public function altaPasa($fecha_Inicio, $inventario, $ID_Estado, $fecha_Cambio){
             $sql = "INSERT INTO `pasa`(`Fecha_Inicio`, `N°inventario`, `ID_Estado`, `Fecha_Cambio`) VALUES ('$fecha_Inicio', '$inventario', '$ID_Estado', '$fecha_Cambio')";
@@ -150,10 +146,6 @@
                 header('Location: #');
             }
         }
-
-
-
-
 
 /*Modificaciones */
 
