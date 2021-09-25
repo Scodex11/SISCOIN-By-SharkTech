@@ -161,7 +161,7 @@
                 echo "<script>alert('¡Ha ocurrido un error al ejecutar la modificación DE ESTADO!');</script>";
             }else{
                 echo "<script>alert('¡PASA modificado con éxito!');</script>";
-                header('Location: #');
+                
             }
         }
 

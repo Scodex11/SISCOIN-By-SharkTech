@@ -1,4 +1,4 @@
-<?php require_once('../controllers/controller_user.php') ?>
+<?php require_once('../controllers/controller_solicita.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -105,81 +105,116 @@
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">¡Gestiona tus usuarios! :D</h4>
-							<p class="mb-30">Rellene el formulario a continuación...</p>
+							<h4 class="text-blue h4">Nueva Solicitud</h4>
+							<p class="mb-30">Rellene el formulario para contactar con Depto. Informática</p>
 						</div>
 					</div>
 
 					
-					<!-- FORMULARIO DE ALTA USUARIOS -->
+					<!-- FORMULARIO DE ALTA SOLICITUDES -->
 					<form action="#" method="post">
 					
-						<!-- text field name = "user" -->
+						<!-- comboBox name = "cbx_Equipo" -->
 							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Usuario</label>
+								<label class="col-sm-12 col-md-2 col-form-label">Tipo Equipo: </label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: panaRabbit" name="user">
-								</div>
-							</div>
-						<!-- text field name = "pass" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Contraseña</label>
-								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="password" placeholder="***********" name="pass">
+									<select class="custom-select col-12" name="cbx_Equipo">
+										<?php 
+											foreach($comboTipoEquipo as $datos) { ?>
+												<option value="<?php echo $datos['ID']; ?>"><?php echo $datos['categoria']; ?></option>
+										<?php } ?> 
+									</select>
 								</div>
 							</div>
 						
+						<!-- cbx name = "fechaHoy" -->	
 							<div class="form-group row">
-							<label class="col-sm-12 col-md-2 col-form-label">Cargo</label>
-							<div class="col-sm-12 col-md-10">
-								<select class="custom-select col-12" name="cbx_cargo">
-									<?php 
-										foreach($comboCargo as $datos) { ?>
-											<option value="<?php echo $datos['ID_Cargo']; ?>"><?php echo $datos['cargo']; ?></option>
-									<?php } ?> 
-								</select>
-							</div>
-							</div>
-							<!-- text field name = "nombreCompleto" -->
-							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Nombre Completo</label>
+								<label class="col-sm-12 col-md-2 col-form-label">Fecha: </label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: Enrique Iglesias" name="nombreCompleto">
+									<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaHoy">
 								</div>
 							</div>
 
+						<!-- comboBox name = "cbx_Oficina" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Oficina: </label>
+								<div class="col-sm-12 col-md-10">
+									<select class="custom-select col-12" name="cbx_Oficina">
+										<?php 
+											foreach($comboOficina as $datos) { ?>
+												<option value="<?php echo $datos['ID_Oficina']; ?>"><?php echo $datos['denominacion']; ?></option>
+										<?php } ?> 
+									</select>
+								</div>
+							</div>
+
+							<!-- ComboBox name ="motivo" -->
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Motivo: </label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name ="motivo">
+									<option selected="">Seleccione...</option>
+									<option value="Reponer">Reponer</option>
+									<option value="Reparar">Reparar</option>
+									<option value="Equipo Nuevo">Equipo Nuevo</option>
+									<option value="Otro...">Otro...</option>
+								</select>
+							</div>
+						</div>
+
+							<!-- text field name = "detalle" -->
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Detalle: </label>
+								<div class="col-sm-12 col-md-10">
+									<input class="form-control" type="text" placeholder="Describa la razón de la solicitud. *PUEDE ESTAR EN BLANCO*" name="detalle">
+								</div>
+							</div>
+
+							<!-- textField name = "cantidad' -->
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Cantidad Equipos</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control" value="1" type="number" max = "5" min="1" name="cantidad">
+							</div>
+						</div>
 							<div class="btn list">
-								<input type="submit" name="btn_registrar" value="Registrar" class="btn btn-outline-success">
-								<input type="submit" name="btn_modificar" value ="Modificar" class="btn btn-outline-warning">
-								<input type="submit" name="btn_eliminar" value="Eliminar" class="btn btn-outline-danger">
-								<input type="submit" name="btn_pass" value="Modificar Contraseña" class="btn btn-outline-primary">
+								<input type="submit" name="btn_enviar" value="Enviar" class="btn btn-outline-success">
 							</div>
 					</form>
 					
-					<!-- Comienzo de Tabla EQUIPAMIENTO -->
+					<!-- Comienzo de Tabla SOLICITUDES -->
 	<div class="pd-20 card-box mb-30">
 		<div class="clearfix mb-20">
 			<div class="pull-left">
-				<h4 class="text-blue h4">Equipamiento en Stock</h4>
+				<h4 class="text-blue h4">Listado de Solicitudes</h4>
 			</div>
 		</div>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>Usuario</th>
-					<th>Contraseña</th>
-					<th>Cargo</th>
-					<th>Nombre Completo</th>
+					<th>Fecha</th>
+					<th>N°</th>
+					<th>Cat. Equipo</th>
+					<th>Oficina</th>
+					<th>Estado</th>
+					<th>Motivo</th>
+					<th>Detalle</th>
+					<th>Cant Equipos</th>
 				</tr>
 			</thead>
 			<tbody>
 			<?php
-			// Tabla manipulada desde 'controllers_user'
-                  foreach ($datosUser as $dato){
-                      echo "<tr> <td>".$dato['Usuario']."</td>
-                      <td>".$dato['Contraseña']."</td>
-                      <td>".$dato['cargo']."</td>
-                      <td>".$dato['nombreCompleto']."</td>
+			// Tabla manipulada desde 'controller_soli'
+                  foreach ($datosSoli as $dato){
+
+                      echo "<tr> <td>".$dato['fecha']."</td>
+					  <td>".$dato['N°Solicitud']."</td>
+                      <td>".$dato['Categoria']."</td>
+                      <td>".$dato['Denominacion']."</td>
+                      <td>".$dato['Estado_Solicitud']."</td>
+                      <td>".$dato['motivo']."</td>
+                      <td>".$dato['detalle']."</td>
+                      <td>".$dato['Cantidad_Equipos']."</td>
                       </tr>";
                   }
          	 ?> 
@@ -226,7 +261,7 @@
 										</div>
 									</div>
 								</section>
-								Step 2 -->
+								<!-- Step 2 -->
 								<!-- <h5>Personal Information</h5>
 								<section>
 									<div class="form-wrap max-width-600 mx-auto">
