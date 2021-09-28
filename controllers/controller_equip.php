@@ -72,20 +72,16 @@
                 $inventario = $_POST['inventario']; 
                 $ID_Estado  = $_POST['cbx_Estado'];
 
-                $result = $objetoEquip->altaPasa($fecha_Inicio, $inventario, $ID_Estado, $fecha_Cambio);
-                
-                
-               
+                $result = $objetoEquip->altaPasa($fecha_Inicio, $inventario, $ID_Estado, $fecha_Cambio);       
         }
-
+        
         // Modificacion Pasa
         if (isset($_POST['btn_modificarEstado'])) {
-                $fecha_Cambio = $_POST['fechaCambio']; 
+                echo $fecha_Cambio = $_POST['fechaCambio'];
                 $inventario = $_POST['inventario']; 
                 $ID_Estado  = $_POST['cbx_Estado'];
-
                 
-                if (isset($fecha_Cambio) && isset($inventario) && isset($ID_Estado)) {
+                if (isset($inventario) && isset($ID_Estado)) {
                         $result = $objetoEquip->modificarPasa($inventario, $ID_Estado, $fecha_Cambio);
                         if ($result) {
                                 // Actualizamos la página

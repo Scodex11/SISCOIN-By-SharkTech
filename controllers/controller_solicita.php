@@ -26,7 +26,9 @@
 
 
         $result = $objetoSolicita->altaSoli($ID_Equipamiento, $fecha, $oficina, $motivo, $detalle, $cantEquipos);
-
+        
         header('Location: #');
     }
+
+    
 ?>

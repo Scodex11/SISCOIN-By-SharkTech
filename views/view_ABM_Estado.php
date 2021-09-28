@@ -181,7 +181,7 @@
 
 					
 					<!-- FORMULARIO DE EQUIPAMIENTO -->
-					<form action="#" method="post">
+					<form action="#" method="post" id="formulario" class="formulario">
 
 						<!-- N°Inventario name="inventario" -->
 						<div class="form-group row">
@@ -222,7 +222,7 @@
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">Fecha Cambio</label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaCambio">
+									<input class="form-control"  type="text" name = "fechaCambio" id="fechaCambio">
 								</div>
 							</div>
 							
@@ -281,6 +281,8 @@
 		</div>
 	</div>
 	<!-- js -->
+
+	<script src="vendors/scripts/scriptFecha.js"></script>
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>
