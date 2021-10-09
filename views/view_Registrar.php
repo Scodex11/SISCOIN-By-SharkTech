@@ -167,7 +167,6 @@
 			<thead>
 				<tr>
 					<th>Usuario</th>
-					<th>Contraseña</th>
 					<th>Cargo</th>
 					<th>Nombre Completo</th>
 				</tr>
@@ -177,7 +176,6 @@
 			// Tabla manipulada desde 'controllers_user'
                   foreach ($datosUser as $dato){
                       echo "<tr> <td>".$dato['Usuario']."</td>
-                      <td>".$dato['Contraseña']."</td>
                       <td>".$dato['cargo']."</td>
                       <td>".$dato['nombreCompleto']."</td>
                       </tr>";

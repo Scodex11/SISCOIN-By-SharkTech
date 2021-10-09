@@ -1,5 +1,5 @@
 <?php 
-	require_once("../../controllers/controller_tipoEquipamiento.php");
+	require_once("../../controllers/controller_GestionSoli.php");
 
 	
  ?>
@@ -74,7 +74,7 @@
                       }
                 	}
                     ?>
-				<h3>Listado de Categorías</h3>
+				<h3>Gestión de Solicitudes </h3>
 			</div>
 			<div class="panel-body">
 				<p>
@@ -83,10 +83,14 @@
 				<table class="table table-bordered">	
 						<thead>	
 							<tr class="info">
-								<th>ID</th>
-								<th>Categoria</th>
-								<th>PreStock</th>
-								<th>CantidadMinima</th>
+								<th>Fecha</th>
+								<th>N°Soli</th>
+								<th>Tipo Equipo</th>
+								<th>Oficina</th>
+								<th>Estado</th>
+								<th>Motivo</th>
+								<th>Detalle</th>
+								<th>Cant. Equipos</th>
 								<!-- <th>Fecha Nac.</th> -->
 								<th>Acciones</th>
 							</tr>
@@ -96,11 +100,15 @@
 								foreach($u as $dato) {
 							 ?>
 							 <tr>
-							 	<td><?php echo $dato->ID ?></td>
+							 	<td><?php echo $dato->fecha ?></td>
+							 	<td><?php echo $dato->N°Solicitud ?></td>
 							 	<td><?php echo $dato->categoria ?></td>
-							 	<td><?php echo $dato->PreStock ?></td>
-							 	<td><?php echo $dato->CantidadMinima ?></td>
-							 	<!-- <td>echo Helpers:: //(fecha$dato->fecha) ?></td> -->
+							 	<td><?php echo $dato->denominacion ?></td>
+							 	<td><?php echo $dato->Estado_Solicitud ?></td>
+							 	<td><?php echo $dato->motivo ?></td>
+							 	<td><?php echo $dato->detalle ?></td>
+							 	<td><?php echo $dato->Cantidad_Equipos ?></td>
+							 	
 							 	<td>
 							 		<a name = "editar" href="editar.php?id=<?php echo $dato->ID ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 

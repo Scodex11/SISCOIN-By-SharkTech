@@ -1,14 +1,12 @@
 <?php 
-    require_once('../../models/model_tipoEquipamiento.php');
-    session_start();
-    
-    $tipoEquipamiento = new tipoEquipamiento();
-	// Listado de Tipo Equipamiento
-    $u = $tipoEquipamiento->getDatos();
+    require_once('../../models/model_GestionSoli.php');
+    $soliEquip = new GestionSoli();
+	// Listado de Solicitudes
+    $u = $soliEquip->getDatos();
 
 
 
-    // Alta  de TipoEquipamiento
+    // Alta  de Solicitudes
 	if(isset($_POST["id"])){
         $id = $_POST['id'];
         $categoria = $_POST['categoria'];

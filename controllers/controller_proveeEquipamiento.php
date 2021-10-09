@@ -1,7 +1,5 @@
 <?php 
     require_once('../../models/model_tipoEquipamiento.php');
-    session_start();
-    
     $tipoEquipamiento = new tipoEquipamiento();
 	// Listado de Tipo Equipamiento
     $u = $tipoEquipamiento->getDatos();

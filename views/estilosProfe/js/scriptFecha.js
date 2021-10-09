@@ -26,7 +26,7 @@ hoy = new Date(); // Accedo a la fecha del sistema
 		}
 		
 		
-		document.getElementById('fechaCambio').value = obtenerFecha(); 
+		document.getElementById('fechaHoy').value = obtenerFecha(); 
 		
 
 
