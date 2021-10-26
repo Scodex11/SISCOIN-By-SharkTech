@@ -1,5 +1,5 @@
 <?php
-	require_once('../../controllers/controller_tipoEquipamiento.php');
+	require_once('../../controllers/controller_proveedores.php');
 		
 
 
@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>..:: ABM TipoEquipamiento ::..</title>
+	<title>..:: Agregar Proveedor ::..</title>
 	<link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap-theme.css">
@@ -17,30 +17,22 @@
 <body>
 	<div class="container">
 		<ol class="breadcrumb">
-		  <li><a href="view_ABM_tipoEquipamiento.php">Inicio</a></li>
-		  <li class="active">Agregar TipoEquipamiento</li>
+		  <li><a href="view_ABM_Proveedor.php">ABM Proveedor</a></li>
+		  <li class="active">Agregar Proveedor</li>
 		</ol>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Agregar TipoEquipamiento</h3>
+				<h3 class="panel-title">Agregar Proveedor</h3>
 			</div>
 			<div class="panel-body">
 				<form name="form" action="" method="post">
 					<p>
-                        <label for="id">ID:</label>
-                        <input type="text" name="id" placeholder="Ej: 12" autofocus="true" class="form-control" required="true" />
-                    </p>
-                    <p>
-                        <label for="categoria">Categoria:</label>
-                        <input type="text" name="categoria" placeholder="Ej: Disco Duro HDD" class="form-control" required="true" />
-                    </p>
-                    <p>
-                    <label for="preStock">PreStock:</label>
-                        <input type="text" name="preStock" placeholder="Ej: 20" class="form-control" required="true" />
+					<label for="RUT">RUT:</label>
+                       <input type="text" name="RUT" placeholder="Ej: 211234565432" class="form-control" required="true"  maxlength="12"/>
                     </p>
 					<p>
-                    <label for="cantidadMinima">Cantidad Minima:</label>
-                        <input type="text" name="cantidadMinima" placeholder="Ej: 5" class="form-control" required="true" />
+					<label for="razon_social">Razon Social:</label>
+                        <input type="text" name="razon_social" placeholder="Ej: Office 2000" class="form-control" required="true" maxlength="100"/>
                     </p>
                     <hr />
                     <input type="submit" value="Guardar" class="btn btn-primary"/>

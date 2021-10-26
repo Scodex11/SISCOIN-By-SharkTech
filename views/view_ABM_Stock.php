@@ -187,14 +187,14 @@
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">N°Inventario</label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: 123" name="inventario">
+									<input class="form-control" type="text" placeholder="Ej: 12345" name="inventario" maxlength="5">
 								</div>
 							</div>
 						<!-- Text field: name="serie" -->
 							<div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">N°Serie</label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" type="text" placeholder="Ej: qwer1234" name="serie">
+									<input class="form-control" type="text" placeholder="Ej: qwer1234" name="serie" maxlength = "8">
 								</div>
 							</div>
 						<!-- Text field: name="nombre" -->	
@@ -217,9 +217,19 @@
 								<div class="col-sm-12 col-md-10">
 									<input class="form-control" type="text" placeholder="Ej: Logitech" name="marca">
 								</div>
-								
 							</div>	
-						
+							<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Categoria Equipamiento</label>
+							<div class="col-sm-12 col-md-10">
+								<select class="custom-select col-12" name = "inventario">
+									<option selected="">Elige...</option>
+									<?php 
+										foreach($cbxEquipamiento as $datos) { ?>
+											<option value="<?php echo $datos['ID']; ?>"><?php echo $datos['ID']." ".$datos['categoria']; ?></option>
+									<?php } ?> 
+								</select>
+								</div>
+							</div>
 						<!-- Botones ABM -->
 							<div class="btn list">
 								<input type="submit" name="btn_guardar" value="Guardar" class="btn btn-outline-success">

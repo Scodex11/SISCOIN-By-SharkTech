@@ -13,6 +13,10 @@
         $cbxEstado = $objetoEquip->getEstados();
         session_start(); 
 
+        // Combo TipoEquipamiento
+        $cbxEquipamiento = $objetoEquip->getTiposEquipamiento();
+        
+
 
 // BOTON GUARDAR
         if (isset($_POST['btn_guardar'])) {
@@ -22,9 +26,10 @@
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
             $marca = $_POST['marca'];
+            $IDEquip = $_POST['ID_Equip'];
 
         // Ejecutamos el método de ALTA
-            $result = $objetoEquip->altaEquip($inventario, $serie,$nombre,$descripcion,$marca);
+            $result = $objetoEquip->altaEquip($inventario, $serie,$nombre,$descripcion,$marca,$IDEquip);
         // Refrescamos la página
             header('Location: #');
         }

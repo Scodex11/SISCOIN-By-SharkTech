@@ -28,9 +28,9 @@
 						<ul class="submenu">
 							<li><a href="view_ABM_Stock.php">Gestion de Stock</a></li>
 						</ul>
-						<ul class="submenu">
+						<!-- <ul class="submenu">
 							<li><a href="view_ABM_Estado.php">Estado de Equipamiento</a></li>
-						</ul>
+						</ul> -->
 					</li>
 					
 					<li class="dropdown">
@@ -47,7 +47,7 @@
 							<span class="micon dw "><i class="icon-copy fa fa-address-book" aria-hidden="true"></i></span><span class="mtext">Proveedores	</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="view_ABM_Proveedor.php">ABM Proveedor</a></li>
+							<li><a href="view_Proveedor/view_ABM_Proveedor.php">ABM Proveedor</a></li>
 						</ul>
 					</li>
 					

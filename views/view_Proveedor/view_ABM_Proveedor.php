@@ -75,7 +75,7 @@
                       }
                 	}
                     ?>
-				<h3>Listado de Categorías</h3>
+				<h3>Listado de Proveedores</h3>
 			</div>
 			<div class="panel-body">
 				<p>
@@ -86,25 +86,22 @@
 							<tr class="info">
 								<th>RUT</th>
 								<th>Razon Social</th>
-								<th>Teléfono</th>
-								<!-- <th>Fecha Nac.</th> -->
 								<th>Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php 
-								foreach($u as $dato) {
+								foreach($datosProv as $dato) {
 							 ?>
 							 <tr>
 							 	<td><?php echo $dato->RUT ?></td>
 							 	<td><?php echo $dato->razon_social ?></td>
-							 	<td><?php echo $dato->telefono ?></td>
 							 	
 							 	<!-- <td>echo Helpers:: //(fecha$dato->fecha) ?></td> -->
 							 	<td>
 							 		<a name = "editar" href="editar.php?id=<?php echo $dato->RUT ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
-							 		<a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminar.php?id=<?php echo $dato->RUT ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							 		<a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminar.php?RUT=<?php echo $dato->RUT ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
 							 	</td>
 							 </tr>

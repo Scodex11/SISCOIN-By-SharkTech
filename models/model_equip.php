@@ -18,16 +18,27 @@
         public function __construct(){
 			$this->db = Conectar::conexion();
 			$this->equip = array();
+			$this->TipoEquip = array();
 			$this->estado = array();
 			$this->pasa = array();
-			$this->inventario = '';
-			$this->serie = '';
-			$this->nombre = '';
-			$this->descripcion = '';
-			$this->marca = '';
   
 		}
     
+    // Listar Categorias
+
+    public function getTiposEquipamiento(){
+
+        $sql = "SELECT * FROM `tipoequipamiento`";
+        // Ejecutamos la consulta
+        $consulta = $this->db->query($sql);
+    
+        // Recorremos el array
+        while($filas=$consulta->fetch_assoc()){
+            $this->TipoEquip[]=$filas;
+        }
+        // Devolvemos el resultado en el array "TipoEquip"
+        return $this->TipoEquip;
+    }
 
 
 // Listar equipamiento
@@ -46,8 +57,12 @@
         }
 
 // ALTA DE EQUIPAMIENTO
-        public function altaEquip($inventario, $serie,$nombre,$descripcion,$marca){
-            $sql = "INSERT INTO `equipamiento`(`N°Inventario`, `N°Serie`, `Nombre`, `descripcion`, `marca`) VALUES ('$inventario','$serie','$nombre','$descripcion','$marca')";
+        public function altaEquip($inventario, $serie,$nombre,$descripcion,$marca,$IDEquip){
+            
+            $sql = "INSERT INTO `equipamiento` (`N°Inventario`, `N°Serie`, `Nombre`, `descripcion`, `marca`, `ID_Equipamiento`) VALUES ('$inventario','$serie','$nombre','$descripcion','$marca','$IDEquip');
+
+-- n° 2:Estado Stock 
+            INSERT INTO `pasa` (`Fecha_Inicio`, `N°inventario`, `ID_Estado`, `Fecha_Cambio`) VALUES ('current_date()', '$inventario', '2', NULL)";
             // Ejecutamos consulta
             $consulta = $this->db->query($sql);
 

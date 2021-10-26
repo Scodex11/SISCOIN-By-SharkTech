@@ -14,11 +14,10 @@
     $comboOficina = $objetoSolicita->getOficinas();
 
 
-
     if (isset($_POST['btn_enviar'])) {
 
         $ID_Equipamiento = $_POST['cbx_Equipo']; 
-        $fecha = $_POST['fechaHoy']; 
+        $fecha = $_POST['fechaCambio']; 
         $oficina = $_POST['cbx_Oficina']; 
         $motivo = $_POST['motivo']; 
         $detalle = $_POST['detalle']; 

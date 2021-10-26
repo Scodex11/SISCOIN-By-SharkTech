@@ -1,8 +1,9 @@
 <?php
-require("../../controllers/controller_tipoEquipamiento.php");
-	if (isset($_GET['id'])) {
+require('../../controllers/controller_proveedores.php');
+	if (isset($_GET['RUT'])) {
        
-        $result = $tipoEquipamiento->eliminarDatos($_GET["id"]);
-        header("Location: view_ABM_tipoEquipamiento.php?m=3");
+        $result =  $proveedores->eliminarDatos($_GET["RUT"]);
+
+        header("Location: view_ABM_Proveedor.php?m=3");
     }
 ?>

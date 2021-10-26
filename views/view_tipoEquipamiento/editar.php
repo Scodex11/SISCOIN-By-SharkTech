@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>..:: Listado de Alumnos ::..</title>
+	<title>..:: Listado de Categoria ::..</title>
 	<link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap-theme.css">
@@ -16,11 +16,11 @@
 	<div class="container">
 		<ol class="breadcrumb">
 		  <li><a href="view_ABM_tipoEquipamiento.php">Inicio</a></li>
-		  <li class="active">Actualizar Alumnos</li>
+		  <li class="active">Actualizar Categoria</li>
 		</ol>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Actualizar Alumnos</h3>
+				<h3 class="panel-title">Actualizar Categoria</h3>
 			</div>
 			<div class="panel-body">
 				<form name="form" action="" method="post">

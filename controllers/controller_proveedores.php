@@ -4,12 +4,14 @@
 
 
     $proveedores = new Proveedores();
-	// Listado de Proveeodres
+	// Listado de Proveeodres y Teléfono
     $u = $proveedores->getDatosTel();
+// Listado proveedor
+    $datosProv = $proveedores->getDatos();
 
 
 
-    // Alta  de TipoEquipamiento
+    // Alta proveedor
 	if(isset($_POST["RUT"])){
         $RUT = $_POST['RUT'];
         $razon_social = $_POST['razon_social'];
@@ -18,6 +20,10 @@
 	    header("Location: view_ABM_Proveedor.php?m=1");
 	}
     	
+    
+
+
+
 	if (isset($_POST['editar'])) {
         if(!isset($_POST["RUT"]) or !is_numeric($_POST["RUT"])){
             die("error 404");

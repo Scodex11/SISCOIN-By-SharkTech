@@ -5,7 +5,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>REGISTRAR TRABAJADOR</title>
+	<title>NUEVA SOLICITUD</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -95,7 +95,7 @@
 
 <!-- Menú IZQUIERDA -->
 
-	<?php require_once('partials/menu_informatica.php') ?>
+	<?php require_once('partials/menu_oficina.php') ?>
 
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
@@ -127,11 +127,11 @@
 								</div>
 							</div>
 						
-						<!-- cbx name = "fechaHoy" -->	
+						<!-- cbx name = "fechaCambio"	 -->
 							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Fecha: </label>
+								<label class="col-sm-12 col-md-2 col-form-label">Fecha Hoy: </label>
 								<div class="col-sm-12 col-md-10">
-									<input class="form-control" placeholder="0000-00-00" type="date" name = "fechaHoy">
+									<input class="form-control" placeholder="0000-00-00" type="text" id="fechaCambio" name="fechaCambio" >
 								</div>
 							</div>
 
@@ -174,7 +174,7 @@
 							<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Cantidad Equipos</label>
 							<div class="col-sm-12 col-md-10">
-								<input class="form-control" value="1" type="number" max = "5" min="1" name="cantidad">
+								<input class="form-control" value="1" type="text" name="cantidad" maxlength="1"/>
 							</div>
 						</div>
 							<div class="btn list">
@@ -329,6 +329,8 @@
 		</div> -->
 	<!-- </div> -->
 	<!-- js -->
+
+	<script src="vendors/scripts/scriptFecha.js"></script>
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>

@@ -25,9 +25,11 @@ hoy = new Date(); // Accedo a la fecha del sistema
 		
 		}
 		
-		
-		document.getElementById('fechaCambio').value = obtenerFecha(); 
-		
 
+		// TIENE QUE SER CON EL ID NO CON EL NAME
+		window.onload = function(){
+			document.getElementById('fechaCambio').value = obtenerFecha(); 
+		
+		}	
 
 
