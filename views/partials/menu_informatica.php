@@ -28,9 +28,7 @@
 						<ul class="submenu">
 							<li><a href="view_ABM_Stock.php">Gestion de Stock</a></li>
 						</ul>
-						<!-- <ul class="submenu">
-							<li><a href="view_ABM_Estado.php">Estado de Equipamiento</a></li>
-						</ul> -->
+						
 					</li>
 					
 					<li class="dropdown">
@@ -48,6 +46,9 @@
 						</a>
 						<ul class="submenu">
 							<li><a href="view_Proveedor/view_ABM_Proveedor.php">ABM Proveedor</a></li>
+						</ul>
+						<ul class="submenu">
+							<li><a href="view_ProveeEquipamiento/view_ABM_ProveeEquipamiento.php">Menu Informatica</a></li>
 						</ul>
 					</li>
 					

@@ -3,13 +3,13 @@
 require_once("db.php");
 require_once("helpers.php");
 
-class Proveedores extends Conectar //Creamos la clase rios que extiende o hereda de la clase conectar
+class Proveedores extends Conectar 
 {
 	private $db; 
 
 	//Crear nuestro constructor
 	public function __construct(){
-		$this->db=parent::conexion(); //Parent para hacer referencia a la clase padre
+		$this->db=parent::conexion(); 
 	}
 
 	public function getDatos(){

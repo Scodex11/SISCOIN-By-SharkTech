@@ -1,5 +1,5 @@
 <?php 
-	require_once("../../controllers/controller_tipoEquipamiento.php");
+	require_once("../../controllers/controller_proveeEquipamiento.php");
 
 	
  ?>
@@ -7,7 +7,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>..:: Listado de Categorías::..</title>
+	
+	<title>..:: Ordenes de Compra::..</title>
 	<!-- Estilos profe -->
 	<link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.min.css">
@@ -40,8 +41,12 @@
 </head>
 <body>
 	<!-- Menú IZQUIERDA -->
-	<?php //require_once('menu_informatica.php') ?>
+	<?php //require_once('../partials/menu_informatica.php') ?>
 	<div class="container">
+		<ol class="breadcrumb">
+		  	<li><a href="../../views/view_index_informatica.php">Inicio</a></li>
+		  	<li class="active">Generar Orden de Compra</li>
+		</ol>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<?php
@@ -74,7 +79,7 @@
                       }
                 	}
                     ?>
-				<h3>Listado de Categorías</h3>
+				<h3>Ordenes de Compra</h3>
 			</div>
 			<div class="panel-body">
 				<p>
@@ -83,30 +88,27 @@
 				<table class="table table-bordered">	
 						<thead>	
 							<tr class="info">
-								<th>ID</th>
+								<th>Fecha</th>
 								<th>Categoria</th>
-								<th>PreStock</th>
-								<th>CantidadMinima</th>
-								<!-- <th>Fecha Nac.</th> -->
-								<th>Acciones</th>
+								<th>RUT</th>
+								<th>Precio</th>
+								<th>Método Compra</th>
+								<th>Cantidad</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php 
-								foreach($u as $dato) {
+								foreach($tablaProvee as $dato) {
 							 ?>
 							 <tr>
-							 	<td><?php echo $dato->ID ?></td>
+							 	<td><?php echo $dato->fecha ?></td>
 							 	<td><?php echo $dato->categoria ?></td>
-							 	<td><?php echo $dato->PreStock ?></td>
-							 	<td><?php echo $dato->CantidadMinima ?></td>
-							 	<!-- <td>echo Helpers:: //(fecha$dato->fecha) ?></td> -->
-							 	<td>
-							 		<a name = "editar" href="editar.php?id=<?php echo $dato->ID ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-
-							 		<a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminar.php?id=<?php echo $dato->ID ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							 		
-							 	</td>
+							 	<td><?php echo $dato->razon_social ?></td>
+							 	<td><?php echo $dato->precio ?></td>
+							 	<td><?php echo $dato->metodo_compra ?></td>
+							 	<td><?php echo $dato->cantidad ?></td>
+							 	
+							 	
 							 </tr>
 							 <?php 
 							 	} 

@@ -277,6 +277,42 @@
 		
 	</div>
 	<!-- Fin de Tabla EQUIPAMIENTO -->
+		<!-- Comienzo de Tabla EQUIPAMIENTO -->
+		<div class="pd-20 card-box mb-30">
+		<div class="clearfix mb-20">
+			<div class="pull-left">
+				<h4 class="text-blue h4">Equipamiento en Stock</h4>
+			</div>
+		</div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>N° Inventario</th>
+					<th>N° Serie</th>
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Marca</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+			// Tabla manipulada desde 'controllers_equip'
+                  foreach ($datosEquip as $dato){
+                      echo "<tr> <td>".$dato['N°Inventario']."</td>
+                      <td>".$dato['N°Serie']."</td>
+                      <td>".$dato['Nombre']."</td>
+                      <td>".$dato['descripcion']."</td>
+					  <td>".$dato['marca']."</td>
+                      </tr>";
+                  }
+         	 ?> 
+			</tbody>
+		</table>
+		
+		</div>
+		
+	</div>
+	<!-- Fin de Tabla EQUIPAMIENTO -->
 				
 
 			</div>

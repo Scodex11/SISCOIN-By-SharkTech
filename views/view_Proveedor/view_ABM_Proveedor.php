@@ -41,7 +41,7 @@
 </head>
 <body>
 	<!-- Menú IZQUIERDA -->
-	<?php require_once('menu_informatica.php') ?>
+	<?php //require_once('menu_informatica.php') ?>
 	<div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">

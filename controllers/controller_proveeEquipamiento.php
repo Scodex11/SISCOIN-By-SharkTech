@@ -1,43 +1,30 @@
 <?php 
-    require_once('../../models/model_tipoEquipamiento.php');
-    $tipoEquipamiento = new tipoEquipamiento();
+    require_once('../../models/model_proveeEquipamiento.php');
+    $proveeEquipamiento = new proveeEquipamiento();
 	// Listado de Tipo Equipamiento
-    $u = $tipoEquipamiento->getDatos();
+    $u = $proveeEquipamiento->getDatos();
+// ComboBox Categorias
+    $cat = $proveeEquipamiento->getCategoria();
+// ComboBox Proveedores
+    $prov = $proveeEquipamiento->getProveedores();
+
+    // Tabla de Provee Equipamiento
+    $tablaProvee = $proveeEquipamiento->getDatosTabla();
 
 
+    // Alta OrdenCompra
+	if(isset($_POST["fechaHoy"])){
+        $fechaHoy = $_POST['fechaHoy'];
+        $categoria = $_POST['cbx_categoria'];
+        $RUT = $_POST['cbx_RUT'];
+        $precio = $_POST['precio'];
+        $metodoCompra = $_POST['metodoCompra'];
+        $cantidad = $_POST['cantidad'];
 
-    // Alta  de TipoEquipamiento
-	if(isset($_POST["id"])){
-        $id = $_POST['id'];
-        $categoria = $_POST['categoria'];
-        $preStock = $_POST['preStock'];
-        $cantMinima = $_POST['cantidadMinima'];
-
-	    $result =  $tipoEquipamiento->insertarDatos($id, $categoria, $preStock, $cantMinima);
-	    header("Location: view_ABM_tipoEquipamiento.php?m=1");
+	    $result =  $proveeEquipamiento->insertarDatos($fechaHoy, $categoria, $RUT, $precio, $metodoCompra, $cantidad);
+	    header("Location: view_ABM_ProveeEquipamiento.php?m=1");
 	}
-    	
-	if (isset($_POST['editar'])) {
-        if(!isset($_POST["id"]) or !is_numeric($_POST["id"])){
-            die("error 404");
-        }
-        
-        if(sizeof($datos)==0){
-            die("error 404");
-        }
-        
-    }
 
-    if(isset($_POST["actualizar"])){
-
-        $id = $_POST['id'];
-        $categoria = $_POST['categoria'];
-        $preStock = $_POST['preStock'];
-        $cantMinima = $_POST['cantidadMinima'];            
-
-        $result = $tipoEquipamiento->actualizarDatos($id, $categoria, $preStock, $cantMinima);
-        header("Location: view_ABM_tipoEquipamiento.php?m=2");
-    }
 	
     
 
