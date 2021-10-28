@@ -58,11 +58,11 @@
 
 // ALTA DE EQUIPAMIENTO
         public function altaEquip($inventario, $serie,$nombre,$descripcion,$marca,$IDEquip){
-            
+
             $sql = "INSERT INTO `equipamiento` (`N°Inventario`, `N°Serie`, `Nombre`, `descripcion`, `marca`, `ID_Equipamiento`) VALUES ('$inventario','$serie','$nombre','$descripcion','$marca','$IDEquip');
 
--- n° 2:Estado Stock 
-            INSERT INTO `pasa` (`Fecha_Inicio`, `N°inventario`, `ID_Estado`, `Fecha_Cambio`) VALUES ('current_date()', '$inventario', '2', NULL)";
+-- -- n° 2:Estado Stock 
+--             INSERT INTO `pasa` (`Fecha_Inicio`, `N°inventario`, `ID_Estado`, `Fecha_Cambio`) VALUES ('current_date()', '$inventario', '2', NULL)";
             // Ejecutamos consulta
             $consulta = $this->db->query($sql);
 

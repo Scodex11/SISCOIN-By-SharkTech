@@ -29,10 +29,10 @@ class Proveedores extends Conectar
 	
 	public function getDatosTel(){
 		
-		$sql= "	SELECT proveedor.RUT, proveedor.razon_social, teléfono.telefono
-		FROM proveedor, teléfono
+		$sql= "	SELECT proveedor.RUT, proveedor.razon_social, telefono.telefono
+		FROM proveedor, telefono
 		WHERE
-		proveedor.RUT = teléfono.RUT_Proveedor" ;
+		proveedor.RUT = telefono.RUT_Proveedor" ;
 		$datos= $this->db->query($sql);
 		
 		// Creamos array para listar tabla
@@ -78,6 +78,24 @@ class Proveedores extends Conectar
 	public function eliminarDatos($RUT){
 		
 		$sql="DELETE FROM `proveedor` WHERE `RUT` = '$RUT'";
+		$this->db->query($sql);
+		
+	}
+
+
+// MÉTODOS PARA TABLA 'TELEFONO'
+
+	public function insertarTelefono($RUT, $telefono){
+		$sql="INSERT INTO `telefono`(`RUT_Proveedor`, `telefono`) VALUES ('$RUT','$telefono')";
+
+		$this->db->query($sql);
+	}
+
+
+// Eliminar telefono
+	public function eliminarTelefono($RUT, $telefono){
+		$sql = "DELETE FROM `telefono` WHERE `telefono`.`RUT_Proveedor` = '$RUT' AND `telefono`.`telefono` = $telefono";
+		
 		$this->db->query($sql);
 		
 	}

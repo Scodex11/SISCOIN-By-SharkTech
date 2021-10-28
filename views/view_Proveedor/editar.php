@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<ol class="breadcrumb">
-		  <li><a href="view_ABM_tipoEquipamiento.php">Inicio</a></li>
+		  <li><a href="view_ABM_Proveedor.php">Inicio</a></li>
 		  <li class="active">Actualizar PROVEEDOR</li>
 		</ol>
 		<div class="panel panel-primary">
