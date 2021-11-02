@@ -48,7 +48,7 @@
 							<li><a href="view_Proveedor/view_ABM_Proveedor.php">ABM Proveedor</a></li>
 						</ul>
 						<ul class="submenu">
-							<li><a href="view_ProveeEquipamiento/view_ABM_ProveeEquipamiento.php">Menu Informatica</a></li>
+							<li><a href="view_ProveeEquipamiento/view_ABM_ProveeEquipamiento.php">Proveer Stock</a></li>
 						</ul>
 					</li>
 					

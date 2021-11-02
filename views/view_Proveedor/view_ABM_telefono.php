@@ -66,7 +66,7 @@
 						<thead>	
 							<tr class="info">
 								<th>RUT</th>
-								<th>Razon Social</th>
+								<!-- <th>Razon Social</th> -->
 								<th>Telefono</th>
 								<th>Acciones</th>
 							</tr>
@@ -76,17 +76,17 @@
 								foreach($u as $dato) {
 							 ?>
 							 <tr>
-							 	<td><?php echo $dato->RUT ?></td>
-							 	<td><?php echo $dato->razon_social ?></td>
+							 	<td><?php echo $dato->RUT_Proveedor ?></td>
+							 	<!-- <td><?php //echo $dato->razon_social ?></td> -->
 							 	<td><?php echo $dato->telefono ?></td>
 							 	
 							 	<!-- <td>echo Helpers:: //(fecha$dato->fecha) ?></td> -->
 							 	<td>
-							 		<a name = "editar" href="editar.php?id=<?php echo $dato->RUT ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+							 		<!-- <a name = "editar" href="editar.php?id=<?php //echo $dato->RUT ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> -->
 
-							 		<a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminarTel.php?RUT=<?php echo $dato->RUT ?><?php echo $dato->telefono ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							 		<input type="submit" value="Eliminar" class="glyphicon glyphicon-trash" name = "eliminar"/>
 
-									 <a name = "editar" href="telefono.php?id=<?php echo $dato->RUT ?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></a>
+									 <a name = "editar" href="telefono.php?id=<?php echo $dato->RUT_Proveedor ?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></a>
 							 	</td>
 							 </tr>
 							 <?php 

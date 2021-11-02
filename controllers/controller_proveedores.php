@@ -8,7 +8,7 @@
     $u = $proveedores->getDatosTel();
 // Listado proveedor
     $datosProv = $proveedores->getDatos();
-    // $datosProvTel = $proveedores->getDatosId();
+    // $datosProvTel = $proveedores->getDatosTelId();
 
 
 

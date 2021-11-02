@@ -27,7 +27,7 @@ class Proveedores extends Conectar
 		return $arreglo;   
 	}
 	
-	public function getDatosTel(){
+	public function getDatosTele(){
 		
 		$sql= "	SELECT proveedor.RUT, proveedor.razon_social, telefono.telefono
 		FROM proveedor, telefono
@@ -45,10 +45,39 @@ class Proveedores extends Conectar
 		return $arreglo;   
 	}
 	
+	public function getDatosTel(){
+		
+		$sql="SELECT `RUT_Proveedor`, `telefono` FROM `telefono`";
+		
+		$datos= $this->db->query($sql);
+		$arreglo=array();
+		
+		while($reg=$datos->fetch_object()){
+			$arreglo[]=$reg;
+		}
+
+		return $arreglo;
+		
+	}
 
 	public function getDatosId($RUT){
 		
 		$sql="SELECT `RUT`, `razon_social` FROM `proveedor` WHERE RUT='$RUT'";
+		
+		$datos= $this->db->query($sql);
+		$arreglo=array();
+		
+		while($reg=$datos->fetch_object()){
+			$arreglo[]=$reg;
+		}
+
+		return $arreglo;
+		
+	}
+
+	public function getDatosTelId($RUT){
+		
+		$sql="SELECT `RUT_Proveedor`, `telefono` FROM `telefono` WHERE RUT_Proveedor='$RUT'";
 		
 		$datos= $this->db->query($sql);
 		$arreglo=array();
@@ -94,11 +123,12 @@ class Proveedores extends Conectar
 
 // Eliminar telefono
 	public function eliminarTelefono($RUT, $telefono){
-		$sql = "DELETE FROM `telefono` WHERE `telefono`.`RUT_Proveedor` = '$RUT' AND `telefono`.`telefono` = $telefono";
+		$sql = "DELETE FROM `telefono` WHERE `telefono`.`RUT_Proveedor` = '$RUT' AND `telefono`.`telefono` = '$telefono'";
 		
 		$this->db->query($sql);
-		
 	}
+
+
 }
 ?>
 
