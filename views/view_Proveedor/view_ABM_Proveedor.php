@@ -94,7 +94,7 @@
 				<div>
 
 				
-				<table class="table table-bordered">	
+				<table class="table table-responsive-md">	
 						<thead>	
 							<tr class="info">
 								<th>RUT</th>

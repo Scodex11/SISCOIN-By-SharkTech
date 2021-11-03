@@ -62,7 +62,7 @@
 				<h3>Listado de Teléfonos y Proveedores</h3>
 			</div>
 			<div class="panel-body">
-				<table class="table table-bordered">	
+				<table class="table table-responsive-md">	
 						<thead>	
 							<tr class="info">
 								<th>RUT</th>

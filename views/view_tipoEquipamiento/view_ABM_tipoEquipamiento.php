@@ -80,7 +80,7 @@
 				<p>
 					<a href="agregar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
 				</p>
-				<table class="table table-bordered">	
+				<table class="table table-responsive-md">	
 						<thead>	
 							<tr class="info">
 								<th>ID</th>
