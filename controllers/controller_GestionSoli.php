@@ -4,7 +4,7 @@
 	// Listado de Solicitudes
     $u = $soliEquip->getDatos();
 
-
+    session_start();
 
     // Alta  de Solicitudes
 	// if(isset($_POST["id"])){
@@ -43,21 +43,23 @@
                 $cantEquip = $_POST["cantEquip"];
                 
                 
-
                  $buscarInventario = $soliEquip->traerEquip($idEquip); 
                 
                  $inventario = $buscarInventario['N°Inventario'];
+
                 //  Convetrimos a entero
                  $inv = (int)$inventario;
+                
+                 // Busca fecha inicio
+                 $busca= $soliEquip->buscarFechaInicio($inv);
 
-                 $busca= $soliEquip->$buscarFechaInicio($inv);
+                //  Finalizamos estado en tabla 'pasa'
+                 $fin = $soliEquip->finalizarEstado($fechaSoli,$busca['Fecha_Inicio'],$inv);
 
-                //  echo $buscarFechaInicio['Fecha_Inicio'];
-                // exit;
-                //  $instalar = $soliEquip->instalar($fechaSoli, $buscarInventario['N°Inventario'], $oficina);
+                $instalado = $soliEquip->estadoInstalado($fechaSoli, $inv);
 
-                //  $finalizar = $soliEquip->finalizarEstado($fechaSoli, , $buscarInventario['N°Inventario']);
-
+                $instalarEquipo = $soliEquip->instalar($fechaSoli, $inv, $oficina);
+               
                 
             }
 

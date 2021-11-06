@@ -81,9 +81,11 @@ class GestionSoli extends Conectar //Creamos la clase rios que extiende o hereda
 	}
 
 	public function finalizarEstado($fechaCambio, $fechaInicio, $inventario){
+
 		$sql = "UPDATE `pasa` SET `Fecha_Cambio` = '$fechaCambio' WHERE `pasa`.`Fecha_Inicio` = '$fechaInicio' AND `pasa`.`N°inventario` = '$inventario'";
 
 		$this->db->query($sql);
+
 	}
 
 	public function estadoInstalado($fechaInicio, $inventario){
@@ -97,6 +99,7 @@ class GestionSoli extends Conectar //Creamos la clase rios que extiende o hereda
 	public function instalar($fecha, $inventario, $oficina){
 		$sql = "INSERT INTO `asigna_equipamiento` (`fecha_Asignacion`, `N°Inventario`, `ID_Oficina`) VALUES ('$fecha', '$inventario', '$oficina')";
 	
+
 		$this->db->query($sql);
 	}
 
@@ -115,7 +118,6 @@ class GestionSoli extends Conectar //Creamos la clase rios que extiende o hereda
 
 	
 	public function actualizarEstado($idSoli, $estado){
-
 
 		$sql = "UPDATE `solicita_equipamiento` SET `Estado_Solicitud` = '$estado' WHERE `solicita_equipamiento`.`N°Solicitud` = '$idSoli'";
 

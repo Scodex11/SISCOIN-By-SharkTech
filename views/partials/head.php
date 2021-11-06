@@ -13,6 +13,9 @@
 <link rel="stylesheet" type="text/css" href="views/vendors/styles/icon-font.min.css">
 <link rel="stylesheet" type="text/css" href="views/vendors/styles/style.css">
 
+<button href="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </button>
+
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>

@@ -38,6 +38,9 @@
 						<ul class="submenu">
 							<li><a href="view_Registrar.php">Registrar USUARIO</a></li>
 						</ul>
+						<ul class="submenu">
+							<li><a href="view_GestionSoli\view_GestionSoli.php">Gestion de Solicitudes</a></li>
+						</ul>
 					</li>
 					
 					<li class="dropdown">
@@ -50,6 +53,7 @@
 						<ul class="submenu">
 							<li><a href="view_ProveeEquipamiento/view_ABM_ProveeEquipamiento.php">Proveer Stock</a></li>
 						</ul>
+						
 					</li>
 					
 					<li>
