@@ -16,7 +16,11 @@
 					<img src="views/vendors/images/siscoin-logo.svg" alt="">
 				</a>
 			</div>
-			
+			<div class="dashboard-setting">
+			<div class ="dropdown">
+				<div id="google_translate_element" class="google"></div>
+			</div>	
+		</div>
 		</div>
 	</div>
 
@@ -106,6 +110,14 @@
 		</div>
 	</div>
 	<!-- js -->
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 	<?php require_once('partials/scriptJS.php'); ?>
 </body>
 </html>

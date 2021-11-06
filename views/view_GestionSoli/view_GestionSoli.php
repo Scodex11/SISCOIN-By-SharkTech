@@ -61,9 +61,6 @@
 					</a>
 				</div>
 			</div>
-
-			<!-- Idioma -->
-
            <!-- BOTON de notifiaciones -->
 			
             <div class="user-notification">
@@ -133,7 +130,7 @@
 						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<form action="../index.php" method="POST">
+						<form action="../../index.php" method="POST">
 							<!-- <a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
 							<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>
 							<a class="dropdown-item" href="#"><i class="dw dw-help"></i>Ayuda</a> -->
@@ -144,6 +141,9 @@
 			</div>
 		</div>
 	</div>
+<div class="container">
+
+
 	<div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -179,6 +179,10 @@
                     ?>
 				<h3>Listado de Solicitudes </h3>
 			</div>
+
+			<div>
+
+
 			<div class="panel-body">
 				<p>
 					<a href="gestionar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
@@ -227,8 +231,22 @@
 				</table>
 			</div>
 		</div>
+		</div>
+		</div>
+		
+		
+		
 		
 	</div>
+
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 	 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
         <script src="../estilosProfe/js/bootstrap.min.js"></script>
         <script src="../estilosProfe/js/funciones.js"></script>

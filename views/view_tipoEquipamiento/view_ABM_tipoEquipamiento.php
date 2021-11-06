@@ -41,7 +41,13 @@
 <body>
 	<!-- Menú IZQUIERDA -->
 	<?php //require_once('menu_informatica.php') ?>
+
+	
+
+
+<div>
 	<div class="container">
+		
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<?php
@@ -76,6 +82,7 @@
                     ?>
 				<h3>Listado de Categorías</h3>
 			</div>
+			
 			<div class="panel-body">
 				<p>
 					<a href="agregar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
@@ -115,7 +122,7 @@
 				</table>
 			</div>
 		</div>
-		
+	</div>	
 	</div>
 	 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
         <script src="../estilosProfe/js/bootstrap.min.js"></script>

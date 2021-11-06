@@ -65,6 +65,19 @@
 
         $result = $soliEquip->actualizarEstado($id, $estadoSolicitud);
         header("Location: view_GestionSoli.php?m=2");
+    
+    
+            // Botón para cerrar sesión
+    if (isset($_POST['cerrar_sesion'])) {
+        session_start();//Usamos variables de session
+                
+        session_unset();    //Liberamos todas las variables de sesión
+        session_destroy();  //Destruye toda la información asociada con la sesión actual. 
+        header('Location: ../../index.php');
+    }
+    
+    
+    
     }
 	
     
