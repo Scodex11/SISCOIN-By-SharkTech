@@ -13,11 +13,25 @@
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="../estilosProfe/css/bootstrap-theme.min.css">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../vendors/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="../vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="../src/plugins/datatables/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendors/styles/style.css">
 </head>
 <body>
+	
+	
 	<div class="container">
+		
 		<ol class="breadcrumb">
-		  <li><a href="view_ABM_tipoEquipamiento.php">Inicio</a></li>
+			
+		  <li><a href="../view_index_informatica.php">Inicio</a></li>
+		  <li><a href="view_ABM_tipoEquipamiento.php">Listado de Categorías</a></li>
 		  <li class="active">Agregar TipoEquipamiento</li>
 		</ol>
 		<div class="panel panel-primary">
@@ -48,6 +62,19 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ 
+	<script src="../vendors/scripts/core.js"></script>
+	<script src="../vendors/scripts/script.min.js"></script>
+	<script src="../vendors/scripts/process.js"></script>
+	<script src="../vendors/scripts/layout-settings.js"></script>
+	<script src="../src/plugins/apexcharts/apexcharts.min.js"></script>
+	<script src="../src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="../vendors/scripts/dashboard.js"></script>
 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
 	<script src="../estilosProfe/js/bootstrap.min.js"></script>
 	<script src="../estilosProfe/js/funciones.js"></script>

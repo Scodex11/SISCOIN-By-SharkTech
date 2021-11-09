@@ -14,6 +14,12 @@
 </head>
 <body>
 	<div class="container">
+	<div class="menu-icon"></div>
+		<div class="dashboard-setting user-notification">
+			<div class ="dropdown">
+				<div id="google_translate_element" class="google"></div>
+			</div>	
+		</div>
 		<ol class="breadcrumb">
 		  <li><a href="view_ABM_Proveedor.php">Inicio</a></li>
 		  <li class="active">Agregar Teléfono</li>
@@ -59,14 +65,14 @@
                       }
                 	}
                     ?>
-				<h3>Listado de Teléfonos y Proveedores</h3>
+				<h3>Listado de Teléfonos</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-responsive-md">	
 						<thead>	
 							<tr class="info">
 								<th>RUT</th>
-								<!-- <th>Razon Social</th> -->
+								<th>Razon Social</th>
 								<th>Telefono</th>
 								<th>Acciones</th>
 							</tr>
@@ -76,17 +82,18 @@
 								foreach($u as $dato) {
 							 ?>
 							 <tr>
-							 	<td><?php echo $dato->RUT_Proveedor ?></td>
-							 	<!-- <td><?php //echo $dato->razon_social ?></td> -->
+							 	<td><?php echo $dato->RUT ?></td>
+							 	<td><?php echo $dato->razon_social ?></td>
 							 	<td><?php echo $dato->telefono ?></td>
 							 	
 							 	<!-- <td>echo Helpers:: //(fecha$dato->fecha) ?></td> -->
 							 	<td>
 							 		<!-- <a name = "editar" href="editar.php?id=<?php //echo $dato->RUT ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> -->
 
-							 		<input type="submit" value="Eliminar" class="glyphicon glyphicon-trash" name = "eliminar"/>
+							 		<!-- <input type="submit" value="Eliminar" class="glyphicon glyphicon-trash" name = "eliminar"/> -->
+									 <a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminarTel.php?telefono=<?php echo $dato->telefono ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
-									 <a name = "editar" href="telefono.php?id=<?php echo $dato->RUT_Proveedor ?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></a>
+									 <a name = "editar" href="telefono.php?id=<?php echo $dato->RUT ?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></a>
 							 	</td>
 							 </tr>
 							 <?php 
@@ -97,6 +104,16 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ 
+
 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
 	<script src="../estilosProfe/js/funciones.js"></script>
 	<script src="../estilosProfe/js/modernizr-custom.js"></script>

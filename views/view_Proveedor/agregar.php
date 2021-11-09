@@ -16,6 +16,12 @@
 </head>
 <body>
 	<div class="container">
+	<div class="menu-icon"></div>
+		<div class="dashboard-setting user-notification">
+			<div class ="dropdown">
+				<div id="google_translate_element" class="google"></div>
+			</div>	
+		</div>
 		<ol class="breadcrumb">
 		  <li><a href="view_ABM_Proveedor.php">ABM Proveedor</a></li>
 		  <li class="active">Agregar Proveedor</li>
@@ -40,6 +46,15 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
 	<script src="../estilosProfe/js/bootstrap.min.js"></script>
 	<script src="../estilosProfe/js/funciones.js"></script>

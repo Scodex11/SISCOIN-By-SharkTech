@@ -106,7 +106,8 @@ class Proveedores extends Conectar
 	
 	public function eliminarDatos($RUT){
 		
-		$sql="DELETE FROM `proveedor` WHERE `RUT` = '$RUT'";
+ 		$sql="DELETE FROM `proveedor` WHERE `RUT` = '$RUT'";
+		
 		$this->db->query($sql);
 		
 	}
@@ -122,9 +123,12 @@ class Proveedores extends Conectar
 
 
 // Eliminar telefono
-	public function eliminarTelefono($RUT, $telefono){
-		$sql = "DELETE FROM `telefono` WHERE `telefono`.`RUT_Proveedor` = '$RUT' AND `telefono`.`telefono` = '$telefono'";
+	public function eliminarTelefono($telefono){
 		
+
+ $sql = "DELETE FROM `telefono` WHERE `telefono`.`telefono` = '$telefono'";
+		
+
 		$this->db->query($sql);
 	}
 

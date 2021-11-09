@@ -43,6 +43,16 @@
 	<!-- Menú IZQUIERDA -->
 	<?php //require_once('menu_informatica.php') ?>
 	<div class="container">
+	<div class="menu-icon"></div>
+		<div class="dashboard-setting user-notification">
+			<div class ="dropdown">
+				<div id="google_translate_element" class="google"></div>
+			</div>	
+		</div>
+		<ol class="breadcrumb">
+		  <li><a href="../view_index_informatica.php">Inicio</a></li>
+		  <li class="active">Listado de Proveedores</li>
+		</ol>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<?php
@@ -89,7 +99,7 @@
 			<div class="panel-body">
 				<p>
 					<a href="agregar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
-					<a href="view_ABM_telefono.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Telefonos</a>
+					<!-- <a href="view_ABM_telefono.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Telefonos</a> -->
 				</p>
 				<div>
 
@@ -129,6 +139,17 @@
 		</div>
 		
 	</div>
+
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+				}
+	</script>
+
+	<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+
 	 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
         <script src="../estilosProfe/js/bootstrap.min.js"></script>
         <script src="../estilosProfe/js/funciones.js"></script>

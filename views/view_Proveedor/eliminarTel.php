@@ -1,11 +1,12 @@
 <?php
 require('../../controllers/controller_proveedores.php');
-	if (isset($_GET['RUT'])) {
+	     
+    if (isset($_GET['telefono'])) {
         
-        $i = $_GET["RUT"];
         $z = $_GET["telefono"];
-       
-        $result =  $proveedores->eliminarTelefono($i, $z);
+       $result =  $proveedores->eliminarTelefono($z);
         header("Location: view_ABM_telefono.php?m=3");
-    }
+        }  
+
+
 ?>

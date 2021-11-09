@@ -44,6 +44,12 @@
 			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
 		</div>
 		<div class="header-right">
+		<div class="menu-icon"></div>
+		<div class="dashboard-setting user-notification">
+			<div class ="dropdown">
+				<div id="google_translate_element" class="google"></div>
+			</div>	
+		</div>
 			<div class="dashboard-setting user-notification">
 				<div class="dropdown">
 					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
@@ -51,7 +57,7 @@
 					</a>
 				</div>
 			</div>
-
+			
             <!-- BOTON de notifiaciones -->
 			
             <div class="user-notification">
@@ -292,6 +298,16 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ 
+
 	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>

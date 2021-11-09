@@ -15,7 +15,8 @@
 <body>
 	<div class="container">
 		<ol class="breadcrumb">
-		  <li><a href="view_ABM_tipoEquipamiento.php">Inicio</a></li>
+		  <li><a href="../view_index_informatica.php">Inicio</a></li>
+		  <li><a href="view_ABM_tipoEquipamiento.php">Listado de Categorías</a></li>
 		  <li class="active">Actualizar Categoria</li>
 		</ol>
 		<div class="panel panel-primary">

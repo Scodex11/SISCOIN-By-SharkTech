@@ -67,6 +67,8 @@
 	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
 
+	
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>
@@ -92,7 +94,7 @@
 		</div>
 		<div class="header-right">
 			<div class="menu-icon"></div>
-		<div class="dashboard-setting">
+		<div class="dashboard-setting user-notification">
 			<div class ="dropdown">
 				<div id="google_translate_element" class="google"></div>
 			</div>	
@@ -315,7 +317,7 @@
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
         }
 </script>
 

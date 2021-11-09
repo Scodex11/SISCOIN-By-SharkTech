@@ -14,6 +14,12 @@
 </head>
 <body>
 	<div class="container">
+		<div class="menu-icon"></div>
+		<div class="dashboard-setting user-notification">
+			<div class ="dropdown">
+				<div id="google_translate_element" class="google"></div>
+			</div>	
+		</div>
 		<ol class="breadcrumb">
 		  <li><a href="view_ABM_Proveedor.php">Inicio</a></li>
 		  <li class="active">Agregar Teléfono</li>
@@ -67,8 +73,12 @@
 			<div class="panel-body">
 				<form name="form" action="" method="post">
 					<p>
+					<label for="razon_social">Razón Social:</label>
+                        <input type="text" name="razon_social" placeholder="Ej: 99096702" class="form-control" value = "<?php echo $datos[0]->razon_social;?>" disabled/>
+                    </p>
+					<p>
 					<label for="telefono">Teléfono:</label>
-                        <input type="text" name="telefono" placeholder="Ej: 99096702" class="form-control" required="true"/>
+                        <input type="text" name="telefono" placeholder="Ej: 99096702" class="form-control" required="true" maxlength="9"/>
                     </p>
                     <hr />
                     <input type="hidden" name="RUT" value="<?php echo $datos[0]->RUT;?>" />
@@ -95,13 +105,13 @@
 							 	<td><?php echo $dato->telefono ?></td>
 							 	
 							 	<!-- <td>echo Helpers:: //(fecha$dato->fecha) ?></td> -->
-							 	<!-- <td>
+							 	<td>
 							 		<a name = "editar" href="editar.php?id=<?php echo $dato->RUT ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
-							 		<a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminar.php?RUT=<?php echo $dato->RUT ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							 		<a name = "eliminar" href="javascript:void(0);"onclick="eliminar('eliminarTel.php?telefono=<?php echo $dato->telefono ?>');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
 									 <a name = "editar" href="telefono.php?id=<?php echo $dato->RUT ?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></a>
-							 	</td> -->
+							 	</td>
 							 </tr>
 							 <?php 
 							 	} 
@@ -111,6 +121,16 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en, es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ 
+
 	<script src="../estilosProfe/js/jquery-1.10.2.js"></script>
 	<script src="../estilosProfe/js/funciones.js"></script>
 	<script src="../estilosProfe/js/modernizr-custom.js"></script>

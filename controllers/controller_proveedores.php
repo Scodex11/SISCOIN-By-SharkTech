@@ -5,7 +5,7 @@
 
     $proveedores = new Proveedores();
 	// Listado de Proveeodres y Teléfono
-    $u = $proveedores->getDatosTel();
+    $u = $proveedores->getDatosTele();
 // Listado proveedor
     $datosProv = $proveedores->getDatos();
     // $datosProvTel = $proveedores->getDatosTelId();
@@ -49,7 +49,7 @@
         $telefono = $_POST['telefono'];           
 
         $result = $proveedores->insertarTelefono($RUT, $telefono);
-        header("Location: view_ABM_telefono.php?m=4");
+        header("Location: telefono.php?m=4");
     }
 
 
