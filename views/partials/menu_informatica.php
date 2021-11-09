@@ -55,6 +55,28 @@
 						</ul>
 						
 					</li>
+
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw "><i class="icon-copy fa fa-id-badge" aria-hidden="true"></i></span><span class="mtext">Perfiles:	</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="view_index_oficina.php">Oficina</a></li>
+						</ul>
+						<ul class="submenu">
+							<li><a href="view_index_subA.php">Subdirección A</a></li>
+						</ul>
+						<ul class="submenu">
+							<li><a href="view_index_subB.php">Subdirección B</a></li>
+						</ul>
+						<ul class="submenu">
+							<li><a href="view_index_auditoria.php">Auditoría</a></li>
+						</ul>
+						<ul class="submenu">
+							<li><a href="view_index_compras.php">Compras</a></li>
+						</ul>
+						
+					</li>
 					
 					<li>
 						<div class="dropdown-divider"></div>

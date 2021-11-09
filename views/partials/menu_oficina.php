@@ -24,9 +24,6 @@
 						<ul class="submenu">
 							<li><a href="view_solicita.php">Nueva Solicitud</a></li>
 						</ul>
-						<ul class="submenu">
-							<li><a href="#">Equipamiento Total Oficina</a></li>
-						</ul>
 					</li>
 					<li>
 						<div class="dropdown-divider"></div>

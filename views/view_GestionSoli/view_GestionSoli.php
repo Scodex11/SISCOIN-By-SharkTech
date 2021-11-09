@@ -42,109 +42,21 @@
 	<!-- Menú IZQUIERDA -->
 	<?php //require_once('menu_informatica.php') ?>
 
-	<div class="header">
-		<div class="header-left">
-			<div class="menu-icon dw dw-menu"></div>
-			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
-		</div>
-		<div class="header-right">
-		<div class="menu-icon"></div>
+	
+
+
+
+	<div class="container">
+	<div class="menu-icon"></div>
 		<div class="dashboard-setting user-notification">
 			<div class ="dropdown">
 				<div id="google_translate_element" class="google"></div>
 			</div>	
 		</div>
-			<div class="dashboard-setting user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
-						<i class="dw dw-settings2"></i>
-					</a>
-				</div>
-			</div>
-           <!-- BOTON de notifiaciones -->
-			
-            <div class="user-notification">
-				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-						<i class="icon-copy dw dw-notification"></i>
-						<span class="badge notification"></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-                        <!-- Notificaciones -->
-						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo1.jpg" alt="">
-										<h3>Lea R. Frith</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- DESPLEGABLE DE USUARIO -->
-			<div class="user-info-dropdown">
-				<div class="dropdown">
-					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-						<span class="user-icon">
-							<img src="vendors/images/vale.jpg" alt="">
-						</span>
-						<span class="user-name"><?php echo $_SESSION['nombreCompleto']?></span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<form action="../../index.php" method="POST">
-							<!-- <a class="dropdown-item" href="#"><i class="dw dw-user1"></i>Perfil</a>
-							<a class="dropdown-item" href="#"><i class="dw dw-settings2"></i>Configuración</a>
-							<a class="dropdown-item" href="#"><i class="dw dw-help"></i>Ayuda</a> -->
-							<input type="submit" class="dropdown-item" name="cerrar_sesion" value="Cerrar Sesión">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<div class="container">
-
-
-	<div class="container">
+	<ol class="breadcrumb">
+		  <li><a href="../view_index_informatica.php">Inicio</a></li>
+		  <li class="active">Gestionar Solicitudes</li>
+		</ol>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<?php
