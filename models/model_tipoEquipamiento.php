@@ -29,7 +29,7 @@ class tipoEquipamiento extends Conectar //Creamos la clase rios que extiende o h
 	
 	public function getDatosId($id){
 		
-		$sql="SELECT `ID`, `categoria`, `PreStock`, `CantidadMinima` FROM `tipoequipamiento` WHERE ID='$id'";
+		$sql=" SELECT `ID`, `categoria`, `PreStock`, `CantidadMinima` FROM `tipoequipamiento` WHERE ID='$id' ";
 		
 		$datos= $this->db->query($sql);
 		$arreglo=array();

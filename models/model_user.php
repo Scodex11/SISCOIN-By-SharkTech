@@ -21,11 +21,7 @@
             $this->db = Conectar::conexion();
             $this->cargos = array();
             $this->usuarios = array();
-            $this->user ='';
-            $this->pass ='';
-            $this->contraseña ='';
-            $this->usuario ='';
-            $this->ID_Cargo ='';
+            
 
         }
 
@@ -35,6 +31,7 @@
            
             // Guardamos si existen filas
             $filas = mysqli_num_rows($consulta = $this->db->query($sql));
+            
             if($filas == 0){
                 echo "<script>alert('¡Usuario y/o contraseña incorrectos!');</script>";
             }else{

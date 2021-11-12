@@ -10,6 +10,7 @@
 
         $datosEstado = $objetoEquip->getTablaPasa();
         // Combo PASA
+        
         $cbxEstado = $objetoEquip->getEstados();
         session_start(); 
 
